@@ -1,0 +1,47 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "-Wall",
+      "-std=c++11",
+      "-c",
+      "-o",
+      "main.o",
+      "main.cpp"
+    ],
+    "directory": "/home/skiani/arch/mips_cpu",
+    "file": "/home/skiani/arch/mips_cpu/main.cpp",
+    "output": "/home/skiani/arch/mips_cpu/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "-Wall",
+      "-std=c++11",
+      "-c",
+      "-o",
+      "memory.o",
+      "memory.cpp"
+    ],
+    "directory": "/home/skiani/arch/mips_cpu",
+    "file": "/home/skiani/arch/mips_cpu/memory.cpp",
+    "output": "/home/skiani/arch/mips_cpu/memory.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/g++",
+      "-g",
+      "-Wall",
+      "-std=c++11",
+      "-c",
+      "-o",
+      "processor.o",
+      "processor.cpp"
+    ],
+    "directory": "/home/skiani/arch/mips_cpu",
+    "file": "/home/skiani/arch/mips_cpu/processor.cpp",
+    "output": "/home/skiani/arch/mips_cpu/processor.o"
+  }
+]
