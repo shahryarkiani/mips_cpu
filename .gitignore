@@ -3,3 +3,6 @@
 
 # Executable
 processor
+
+#clangd
+.cache

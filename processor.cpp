@@ -7,7 +7,7 @@ using namespace std;
 #define DEBUG(x) x
 #else
 #define DEBUG(x) 
-#endif
+#endif 
 
 void Processor::initialize(int level) {
     // Initialize Control
@@ -64,14 +64,14 @@ void Processor::single_cycle_processor_advance() {
     int funct = instruction & 0x3f;
     uint32_t imm = (instruction & 0xffff);
     int addr = instruction & 0x3ffffff;
-    // Variables to read data into
+    // Variables to read data into(regfile -> read_data_)
     uint32_t read_data_1 = 0;
     uint32_t read_data_2 = 0;
     
-    // Read from reg file
+    // Read from reg file into variables above
     regfile.access(rs, rt, read_data_1, read_data_2, 0, 0, 0);
     
-    // Execution 
+    // Sets the value of alu.ALU_control_inputs based on what operation the alu needs to do
     alu.generate_control_inputs(control.ALU_op, funct, opcode);
    
     // Sign Extend Or Zero Extend the immediate
@@ -79,16 +79,18 @@ void Processor::single_cycle_processor_advance() {
     imm = control.zero_extend ? imm : (imm >> 15) ? 0xffff0000 | imm : imm;
     
     // Find operands for the ALU Execution
-    // Operand 1 is always R[rs] -> read_data_1, except sll and srl
+    // Operand 1 is always R[rs] -> read_data_1, except sll and srl(shifts, shamt is shift amount)
     // Operand 2 is immediate if ALU_src = 1, for I-type
     uint32_t operand_1 = control.shift ? shamt : read_data_1;
     uint32_t operand_2 = control.ALU_src ? imm : read_data_2;
     uint32_t alu_zero = 0;
 
+    // ALU Execution, performs operation determined by alu.generate_control_inputs
     uint32_t alu_result = alu.execute(operand_1, operand_2, alu_zero);
     
-    
+    //We read into this variable 
     uint32_t read_data_mem = 0;
+    
     uint32_t write_data_mem = 0;
 
     // Memory
@@ -104,7 +106,7 @@ void Processor::single_cycle_processor_advance() {
 
     int write_reg = control.link ? 31 : control.reg_dest ? rd : rt;
 
-    uint32_t write_data = control.link ? regfile.pc+8 : control.mem_to_reg ? read_data_mem : alu_result;  
+    uint32_t write_data = control.link ? regfile.pc + 8 : control.mem_to_reg ? read_data_mem : alu_result;  
 
     // Write Back
     regfile.access(0, 0, read_data_2, read_data_2, write_reg, control.reg_write, write_data);
