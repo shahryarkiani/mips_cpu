@@ -5,16 +5,9 @@
 	.ent	__start
 	.type	__start, @function
 __start:
-   addi $2, $1, 1
-   addi $3, $1, 1
-   add $3, $3, $2
-   add $4, $3, $2
-   add $5, $4, $3
-   add $6, $5, $4
-   add $7, $6, $5
-   add $8, $7, $6
-   add $9, $8, $7
-   add $10, $9, $8
+   addi $1, $0, 15 # r1 = 15
+   add  $0, $1, $0 # r0 = 15, but writes should be ignored
+   add  $1, $0, $0 # r1 should not equal 30
 
 	.end	__start
 	.size	__start, .-__start

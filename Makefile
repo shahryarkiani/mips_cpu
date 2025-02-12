@@ -26,7 +26,7 @@ asm_obj_dir:
 	mkdir -p mips_bin
 
 mips_bin/OUT-% : mips_src/%.s
-	$(ASM) -mips32 $< -nostartfiles -LTtext=0 -o $@
+	$(ASM) -mips32 $< -nostartfiles -Ttext=0 -o $@
 
 clean:
 	$(RM) $(EXE_NAME) $(OBJS) $(ASM_OBJS)
