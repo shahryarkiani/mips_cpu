@@ -145,6 +145,18 @@ void Processor::pipelined_processor_advance() {
     mem_wb.read_data_mem = read_data_mem; // but we need to pass the result of the memory read through
 
     // Execute stage
+
+    // TODO, handle data hazard here
+
+    int dest_reg = ex_mem.reg_dest ? ex_mem.rd : ex_mem.rt;
+
+    if(dest_reg == id_ex.rs) {
+        id_ex.read_data_1 = ex_mem.alu_result;
+    } 
+    if (dest_reg == id_ex.rt) {
+        id_ex.read_data_2 = ex_mem.alu_result;
+    }
+
     alu.generate_control_inputs(id_ex.ALU_op, id_ex.funct, id_ex.opcode);
     
     uint32_t operand_1 = id_ex.shift ? id_ex.shamt : id_ex.read_data_1;
@@ -155,6 +167,7 @@ void Processor::pipelined_processor_advance() {
     // Now write to ex_mem 
     ex_mem = id_ex;
     ex_mem.alu_result = alu_result;
+    DEBUG(cout << "ex_mem.alu_result == " << ex_mem.alu_result << "\n");
 
     // Decode stage
     id_ex = if_id;
