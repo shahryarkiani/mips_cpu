@@ -1,6 +1,8 @@
 #include <cstdint>
 #include <iostream>
 #include "processor.h"
+#include "control.h"
+#include "pipeline.h"
 using namespace std;
 
 #ifdef ENABLE_DEBUG
@@ -120,4 +122,54 @@ void Processor::pipelined_processor_advance() {
     // pipelined processor logic goes here
     // does nothing currently -- if you call it from the cmd line, you'll run into an infinite loop
     // might be helpful to implement stages in a separate module
+
+    // need structs (representing buffer) for each stage's operations
+
+    // We process through the pipeline in reverse
+    
+    // Writeback stage
+    int write_reg = mem_wb.link ? 31 : mem_wb.reg_dest ? mem_wb.rd : mem_wb.rt;
+    uint32_t write_data = mem_wb.link ? regfile.pc + 8 : mem_wb.mem_to_reg ? mem_wb.read_data_mem : mem_wb.alu_result;  
+    regfile.access(0, 0, mem_wb.read_data_2, mem_wb.read_data_2, write_reg, mem_wb.reg_write, write_data);
+    
+    // Memory stage    
+    uint32_t read_data_mem;
+    uint32_t write_data_mem = 0;
+    memory->access(ex_mem.alu_result, read_data_mem, 0, ex_mem.mem_read | ex_mem.mem_write, 0);
+    write_data_mem = control.halfword ? (read_data_mem & 0xffff0000) | (ex_mem.read_data_2 & 0xffff) : 
+                    control.byte ? (read_data_mem & 0xffffff00) | (ex_mem.read_data_2 & 0xff): ex_mem.read_data_2;
+    memory->access(ex_mem.alu_result, read_data_mem, write_data_mem, ex_mem.mem_read, ex_mem.mem_write);
+    read_data_mem &= ex_mem.halfword ? 0xffff : ex_mem.byte ? 0xff : 0xffffffff;
+    // Now we need to transfer information from ex_mem to mem_wb
+    mem_wb = ex_mem; // Almost everything is the same
+    mem_wb.read_data_mem = read_data_mem; // but we need to pass the result of the memory read through
+
+    // Execute stage
+    alu.generate_control_inputs(id_ex.ALU_op, id_ex.funct, id_ex.opcode);
+    
+    uint32_t operand_1 = id_ex.shift ? id_ex.shamt : id_ex.read_data_1;
+    uint32_t operand_2 = id_ex.ALU_src ? id_ex.imm : id_ex.read_data_2;
+    uint32_t alu_zero = 0;
+
+    uint32_t alu_result = alu.execute(operand_1, operand_2, alu_zero);
+    // Now write to ex_mem 
+    ex_mem = id_ex;
+    ex_mem.alu_result = alu_result;
+
+    // Decode stage
+    id_ex = if_id;
+    regfile.access(if_id.rs, if_id.rt, id_ex.read_data_1, id_ex.read_data_2, 0, 0, 0);
+    id_ex.imm = if_id.zero_extend ? if_id.imm : (if_id.imm >> 15) ? 0xffff0000 | if_id.imm : if_id.imm;
+    
+    // Fetch Stage
+    uint32_t instruction;
+    bool mem_success = memory->access(regfile.pc, instruction, 0, 1, 0);
+    DEBUG(cout << "\nPC: 0x" << std::hex << regfile.pc << std::dec << "\n");
+    if(!mem_success) {
+        DEBUG(cout << "stalling IF\n");
+        return;
+    }
+    // increment pc
+    regfile.pc += 4;
+    if_id.load(instruction);
 }
