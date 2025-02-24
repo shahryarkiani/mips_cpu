@@ -165,8 +165,16 @@ void Processor::pipelined_processor_advance() {
     mem_wb = ex_mem; // Almost everything is the same
     mem_wb.read_data_mem = read_data_mem; // but we need to pass the result of the memory read through
 
-    // Execute stage
+    // if we executed a branch instruction, we need to check if we've mispredicted
+    if(ex_mem.branch && ((ex_mem.bne && ex_mem.alu_result) || (!ex_mem.bne && !ex_mem.alu_result))) {
+        // it was a branch, so we need to flush the pipeline and change the pc
+        DEBUG(cout << "Misprediction \n");
+        regfile.pc = regfile.pc - 8 + (ex_mem.imm << 2);
+        id_ex.reset();
+        if_id.reset();
+    }
 
+    // Execute stage
 
     // handle data hazard here
     dest_reg = ex_mem.reg_dest ? ex_mem.rd : ex_mem.rt;
@@ -189,15 +197,7 @@ void Processor::pipelined_processor_advance() {
     // Now write to ex_mem 
     ex_mem = id_ex;
     ex_mem.alu_result = alu_result;
-
-    // if we executed a branch instruction, we need to check if we've mispredicted
-    if(id_ex.branch && ((id_ex.bne && !alu_zero) || (!id_ex.bne && alu_zero))) {
-        // it was a branch, so we need to flush the pipeline and change the pc
-        DEBUG(cout << "Misprediction \n");
-        regfile.pc = regfile.pc - 4 + (id_ex.imm << 2);
-        id_ex.reset();
-        if_id.reset();
-    }
+        
 
 
     // we need to stall if this we're doing a mem_read into a register followed by using that register
