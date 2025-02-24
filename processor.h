@@ -10,6 +10,7 @@ class Processor {
         control_t control;
         Memory *memory;
         Registers regfile;
+        uint32_t fetch_pc;
         // add other structures as needed
 
         // pipelined processor
@@ -23,7 +24,8 @@ class Processor {
  
     public:
         Processor(Memory *mem) { 
-            regfile.pc = 0; 
+            regfile.pc = 0;
+            fetch_pc = 0;
             memory = mem; 
             if_id.reset();
             id_ex.reset();

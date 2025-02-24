@@ -130,8 +130,10 @@ void Processor::pipelined_processor_advance() {
     
     // Writeback stage
     int write_reg = mem_wb.link ? 31 : mem_wb.reg_dest ? mem_wb.rd : mem_wb.rt;
-    uint32_t write_data = mem_wb.link ? regfile.pc + 8 : mem_wb.mem_to_reg ? mem_wb.read_data_mem : mem_wb.alu_result;  
+    uint32_t write_data = mem_wb.link ? fetch_pc + 8 : mem_wb.mem_to_reg ? mem_wb.read_data_mem : mem_wb.alu_result;  
     regfile.access(0, 0, mem_wb.read_data_2, mem_wb.read_data_2, write_reg, mem_wb.reg_write, write_data);
+    regfile.pc = mem_wb.pc;
+    if(mem_wb.reg_write)
     DEBUG(cout << "Writing " << write_data << " to " << write_reg << "for instruction " << mem_wb.pc << "\n");
     // Memory stage   
     
@@ -169,7 +171,7 @@ void Processor::pipelined_processor_advance() {
     if(ex_mem.branch && ((ex_mem.bne && ex_mem.alu_result) || (!ex_mem.bne && !ex_mem.alu_result))) {
         // it was a branch, so we need to flush the pipeline and change the pc
         DEBUG(cout << "Misprediction \n");
-        regfile.pc = regfile.pc - 8 + (ex_mem.imm << 2);
+        fetch_pc = fetch_pc - 8 + (ex_mem.imm << 2);
         id_ex.reset();
         if_id.reset();
     }
@@ -197,7 +199,7 @@ void Processor::pipelined_processor_advance() {
     // Now write to ex_mem 
     ex_mem = id_ex;
     ex_mem.alu_result = alu_result;
-        
+
 
 
     // we need to stall if this we're doing a mem_read into a register followed by using that register
@@ -214,17 +216,17 @@ void Processor::pipelined_processor_advance() {
     
     // Fetch Stage
     uint32_t instruction;
-    bool mem_success = memory->access(regfile.pc, instruction, 0, 1, 0);
-    DEBUG(cout << "\nPC: 0x" << std::hex << regfile.pc << std::dec << "\n");
+    bool mem_success = memory->access(fetch_pc, instruction, 0, 1, 0);
+    DEBUG(cout << "\nPC: 0x" << std::hex << fetch_pc << std::dec << "\n");
     if(!mem_success) {
         if_id.reset();
         DEBUG(cout << "stalling IF\n");
         return;
     }
     if_id.load(instruction);
-    if_id.pc = regfile.pc;
+    if_id.pc = fetch_pc;
 
 
     // update pc to next value
-    regfile.pc += 4;
+    fetch_pc += 4;
 }
