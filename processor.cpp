@@ -132,13 +132,32 @@ void Processor::pipelined_processor_advance() {
     uint32_t write_data = mem_wb.link ? regfile.pc + 8 : mem_wb.mem_to_reg ? mem_wb.read_data_mem : mem_wb.alu_result;  
     regfile.access(0, 0, mem_wb.read_data_2, mem_wb.read_data_2, write_reg, mem_wb.reg_write, write_data);
     
-    // Memory stage    
+    // Memory stage   
+    
+    // Handle data hazard first
+    int dest_reg = mem_wb.reg_dest ? mem_wb.rd : mem_wb.rt;
+
+    if(dest_reg == id_ex.rs && mem_wb.reg_write) {
+        id_ex.read_data_1 = mem_wb.mem_read ? mem_wb.read_data_mem : mem_wb.alu_result;
+    }
+    if(dest_reg == id_ex.rt && mem_wb.reg_write) {
+        id_ex.read_data_2 = mem_wb.mem_read ? mem_wb.read_data_mem : mem_wb.alu_result;
+    }
+
     uint32_t read_data_mem;
     uint32_t write_data_mem = 0;
-    memory->access(ex_mem.alu_result, read_data_mem, 0, ex_mem.mem_read | ex_mem.mem_write, 0);
+    bool read_success = memory->access(ex_mem.alu_result, read_data_mem, 0, ex_mem.mem_read | ex_mem.mem_write, 0);
+    if(!read_success) {
+        DEBUG(cout << "Couldn't write successfully\n");
+    }
+    
     write_data_mem = control.halfword ? (read_data_mem & 0xffff0000) | (ex_mem.read_data_2 & 0xffff) : 
                     control.byte ? (read_data_mem & 0xffffff00) | (ex_mem.read_data_2 & 0xff): ex_mem.read_data_2;
-    memory->access(ex_mem.alu_result, read_data_mem, write_data_mem, ex_mem.mem_read, ex_mem.mem_write);
+    read_success = memory->access(ex_mem.alu_result, read_data_mem, write_data_mem, ex_mem.mem_read, ex_mem.mem_write);
+    if(!read_success) {
+        DEBUG(cout << "Couldn't write successfully\n");
+    }
+
     read_data_mem &= ex_mem.halfword ? 0xffff : ex_mem.byte ? 0xff : 0xffffffff;
     // Now we need to transfer information from ex_mem to mem_wb
     mem_wb = ex_mem; // Almost everything is the same
@@ -146,14 +165,15 @@ void Processor::pipelined_processor_advance() {
 
     // Execute stage
 
-    // TODO, handle data hazard here
 
-    int dest_reg = ex_mem.reg_dest ? ex_mem.rd : ex_mem.rt;
+    // handle data hazard here
+    dest_reg = ex_mem.reg_dest ? ex_mem.rd : ex_mem.rt;
 
-    if(dest_reg == id_ex.rs) {
+
+    if(dest_reg == id_ex.rs && ex_mem.reg_write) {
         id_ex.read_data_1 = ex_mem.alu_result;
     } 
-    if (dest_reg == id_ex.rt) {
+    if (dest_reg == id_ex.rt && ex_mem.reg_write) {
         id_ex.read_data_2 = ex_mem.alu_result;
     }
 
@@ -168,6 +188,13 @@ void Processor::pipelined_processor_advance() {
     ex_mem = id_ex;
     ex_mem.alu_result = alu_result;
     DEBUG(cout << "ex_mem.alu_result == " << ex_mem.alu_result << "\n");
+
+    // we need to stall if this we're doing a mem_read into a register followed by using that register
+    if(id_ex.mem_read && (id_ex.rt == if_id.rs || id_ex.rt == if_id.rs)) {
+        DEBUG(cout << "Stalling for read after mem_read\n");
+        id_ex.reset();
+        return; // don't progress the next two stages 
+    }
 
     // Decode stage
     id_ex = if_id;
