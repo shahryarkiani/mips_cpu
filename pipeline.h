@@ -24,6 +24,8 @@ struct pipeline_buffer_t {
     bool reg_write;          // 1 if need to write back to reg file
     bool zero_extend;        // 1 if immediate needs to be zero-extended
 
+
+    uint32_t pc = 0;
     // information about instruction stored in this stage
     int opcode;
     int rs;
@@ -51,6 +53,7 @@ struct pipeline_buffer_t {
         cout << "REG_WRITE: " << reg_write << "\n";
     }
     void reset() {
+        pc = 0;
         reg_dest = 0;         
         jump = 0;             
         jump_reg = 0;         

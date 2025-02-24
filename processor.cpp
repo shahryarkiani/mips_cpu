@@ -132,7 +132,7 @@ void Processor::pipelined_processor_advance() {
     int write_reg = mem_wb.link ? 31 : mem_wb.reg_dest ? mem_wb.rd : mem_wb.rt;
     uint32_t write_data = mem_wb.link ? regfile.pc + 8 : mem_wb.mem_to_reg ? mem_wb.read_data_mem : mem_wb.alu_result;  
     regfile.access(0, 0, mem_wb.read_data_2, mem_wb.read_data_2, write_reg, mem_wb.reg_write, write_data);
-    
+    DEBUG(cout << "Writing " << write_data << " to " << write_reg << "for instruction " << mem_wb.pc << "\n");
     // Memory stage   
     
     // Handle data hazard first
@@ -194,7 +194,7 @@ void Processor::pipelined_processor_advance() {
     if(id_ex.branch && ((id_ex.bne && !alu_zero) || (!id_ex.bne && alu_zero))) {
         // it was a branch, so we need to flush the pipeline and change the pc
         DEBUG(cout << "Misprediction \n");
-        regfile.pc = regfile.pc - 8 + (id_ex.imm << 2);
+        regfile.pc = regfile.pc - 4 + (id_ex.imm << 2);
         id_ex.reset();
         if_id.reset();
     }
@@ -222,6 +222,7 @@ void Processor::pipelined_processor_advance() {
         return;
     }
     if_id.load(instruction);
+    if_id.pc = regfile.pc;
 
 
     // update pc to next value
