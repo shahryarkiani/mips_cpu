@@ -1,6 +1,6 @@
 
 CXX = g++
-CXXFLAGS= -g3 -Wall -std=c++11 -DENABLE_DEBUG 
+CXXFLAGS= -g3 -Wall -std=c++11 #-DENABLE_DEBUG 
 OPTFLAGS= -O3
 ASM = mipsel-linux-gnu-gcc
 
@@ -9,7 +9,7 @@ EXE_NAME=processor
 SRCS := main.cpp memory.cpp processor.cpp 
 OBJS := $(SRCS:.cpp=.o)
 ASM_SRCS := $(wildcard mips_src/*.s)
-ASM_OBJS := $(ASM_SRCS:mips_src/%.s=mips_bin/OUT-%)
+ASM_OBJS := $(ASM_SRCS:mips_src/%.s=mips_bin/%)
 
 .PHONY: all clean asm_obj_dir
 
@@ -25,7 +25,7 @@ main.o: memory.h processor.h
 asm_obj_dir:
 	mkdir -p mips_bin
 
-mips_bin/OUT-% : mips_src/%.s
+mips_bin/% : mips_src/%.s
 	$(ASM) -mips32 $< -nostartfiles -Ttext=0 -o $@
 
 clean:

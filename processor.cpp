@@ -3,6 +3,7 @@
 #include "processor.h"
 #include "control.h"
 #include "pipeline.h"
+#include "regfile.h"
 using namespace std;
 
 #ifdef ENABLE_DEBUG
@@ -125,7 +126,7 @@ void Processor::pipelined_processor_advance() {
 
     // need structs (representing buffer) for each stage's operations
 
-    // We process through the pipeline in reverse
+    // We process through the pipeline in (kind-of) reverse
     
     // Writeback stage
     int write_reg = mem_wb.link ? 31 : mem_wb.reg_dest ? mem_wb.rd : mem_wb.rt;
@@ -148,7 +149,8 @@ void Processor::pipelined_processor_advance() {
     uint32_t write_data_mem = 0;
     bool read_success = memory->access(ex_mem.alu_result, read_data_mem, 0, ex_mem.mem_read | ex_mem.mem_write, 0);
     if(!read_success) {
-        DEBUG(cout << "Couldn't write successfully\n");
+        DEBUG(cout << "Couldn't read successfully\n");
+        return;
     }
     
     write_data_mem = control.halfword ? (read_data_mem & 0xffff0000) | (ex_mem.read_data_2 & 0xffff) : 
@@ -187,7 +189,16 @@ void Processor::pipelined_processor_advance() {
     // Now write to ex_mem 
     ex_mem = id_ex;
     ex_mem.alu_result = alu_result;
-    DEBUG(cout << "ex_mem.alu_result == " << ex_mem.alu_result << "\n");
+
+    // if we executed a branch instruction, we need to check if we've mispredicted
+    if(id_ex.branch && ((id_ex.bne && !alu_zero) || (!id_ex.bne && alu_zero))) {
+        // it was a branch, so we need to flush the pipeline and change the pc
+        DEBUG(cout << "Misprediction \n");
+        regfile.pc = regfile.pc - 8 + (id_ex.imm << 2);
+        id_ex.reset();
+        if_id.reset();
+    }
+
 
     // we need to stall if this we're doing a mem_read into a register followed by using that register
     if(id_ex.mem_read && (id_ex.rt == if_id.rs || id_ex.rt == if_id.rs)) {
@@ -206,10 +217,13 @@ void Processor::pipelined_processor_advance() {
     bool mem_success = memory->access(regfile.pc, instruction, 0, 1, 0);
     DEBUG(cout << "\nPC: 0x" << std::hex << regfile.pc << std::dec << "\n");
     if(!mem_success) {
+        if_id.reset();
         DEBUG(cout << "stalling IF\n");
         return;
     }
-    // increment pc
-    regfile.pc += 4;
     if_id.load(instruction);
+
+
+    // update pc to next value
+    regfile.pc += 4;
 }
