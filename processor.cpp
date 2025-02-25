@@ -171,7 +171,8 @@ void Processor::pipelined_processor_advance() {
     if(ex_mem.branch && ((ex_mem.bne && ex_mem.alu_result) || (!ex_mem.bne && !ex_mem.alu_result))) {
         // it was a branch, so we need to flush the pipeline and change the pc
         DEBUG(cout << "Misprediction \n");
-        fetch_pc = fetch_pc - 8 + (ex_mem.imm << 2);
+        fetch_pc = ex_mem.pc + 4 + (ex_mem.imm << 2);
+        DEBUG(cout << "Changing fetch_pc to" << fetch_pc << "\n" );
         id_ex.reset();
         if_id.reset();
     }
