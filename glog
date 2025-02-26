@@ -1,0 +1,6904 @@
+Updating regfile.pc to 0x0==0x0
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+L2 Cache: replacing line at idx:0 way:0 due to conflicting address:0
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 0
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 11 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 58 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 1
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 10 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 57 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 2
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 9 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 56 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 3
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 8 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 55 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 4
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 7 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 54 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 5
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 6 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 53 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 6
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 5 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 52 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 7
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 4 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 51 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 8
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 3 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 50 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 9
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 2 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 49 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 10
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 1 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 48 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 11
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L2 Cache (read miss) at address 0: 47 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 12
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 11 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 46 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 13
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 10 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 45 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 14
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 9 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 44 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 15
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 8 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 43 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 16
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 7 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 42 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 17
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 6 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 41 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 18
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 5 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 40 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 19
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 4 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 39 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 20
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 3 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 38 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 21
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 2 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 37 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 22
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 1 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 36 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 23
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L2 Cache (read miss) at address 0: 35 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 24
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 11 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 34 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 25
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 10 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 33 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 26
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 9 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 32 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 27
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 8 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 31 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 28
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 7 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 30 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 29
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 6 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 29 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 30
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 5 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 28 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 31
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 4 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 27 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 32
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 3 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 26 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 33
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 2 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 25 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 34
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 1 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 24 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 35
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L2 Cache (read miss) at address 0: 23 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 36
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 11 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 22 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 37
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 10 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 21 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 38
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 9 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 20 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 39
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 8 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 19 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 40
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 7 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 18 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 41
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 6 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 17 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 42
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 5 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 16 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 43
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 4 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 15 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 44
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 3 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 14 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 45
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 2 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 13 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 46
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 1 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 12 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 47
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L2 Cache (read miss) at address 0: 11 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 48
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 11 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 10 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 49
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 10 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 9 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 50
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 9 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 8 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 51
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 8 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 7 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 52
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 7 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 6 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 53
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 6 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 5 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 54
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 5 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 4 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 55
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 4 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 3 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 56
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 3 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 2 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 57
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 2 cycles remaining to be serviced
+L2 Cache (read miss) at address 0: 1 cycles remaining to be serviced
+MEM[0]: 20010001
+MEM[1]: ac010000
+MEM[2]: 8c020000
+MEM[3]: 421820
+MEM[4]: ac030000
+MEM[5]: 8c040000
+MEM[6]: 20850001
+MEM[7]: ac050000
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 58
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 0: 1 cycles remaining to be serviced
+L2 Cache (read hit): 536936449<-[0]
+L1 Cache: replacing line at idx:0 way:0 due to conflicting address:0
+
+Reading in Fetch_PC: 0x0
+stalling IF
+
+CYCLE 59
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read hit): 536936449<-[0]
+
+Reading in Fetch_PC: 0x0
+
+CYCLE 60
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read hit): 2885746688<-[4]
+
+Reading in Fetch_PC: 0x4
+
+CYCLE 61
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read hit): 2348941312<-[8]
+
+Reading in Fetch_PC: 0x8
+
+CYCLE 62
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read hit): 4331552<-[c]
+
+Reading in Fetch_PC: 0xc
+
+CYCLE 63
+R[0]: 0
+R[1]: 0
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+Writing 1 to 1for instruction 0x0
+L1 Cache (read hit): 536936449<-[0]
+L1 Cache (write hit): [0]<-1
+Stalling for read after mem_read, id_ex.rt == 2 and if_id.rt == 2
+
+CYCLE 64
+R[0]: 0
+R[1]: 1
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x4==0x4
+L1 Cache (read hit): 1<-[0]
+L1 Cache (read hit): 1<-[0]
+L1 Cache (read hit): 2885877760<-[10]
+
+Reading in Fetch_PC: 0x10
+
+CYCLE 65
+R[0]: 0
+R[1]: 1
+R[2]: 0
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x8==0x8
+Writing 1 to 2for instruction 0x8
+L1 Cache (read hit): 2349072384<-[14]
+
+Reading in Fetch_PC: 0x14
+
+CYCLE 66
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read hit): 545587201<-[18]
+
+Reading in Fetch_PC: 0x18
+
+CYCLE 67
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 0
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0xc==0xc
+Writing 2 to 3for instruction 0xc
+L1 Cache (read hit): 1<-[0]
+L1 Cache (write hit): [0]<-2
+Stalling for read after mem_read, id_ex.rt == 4 and if_id.rt == 5
+
+CYCLE 68
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x10==0x10
+L1 Cache (read hit): 2<-[0]
+L1 Cache (read hit): 2<-[0]
+L1 Cache (read hit): 2886008832<-[1c]
+
+Reading in Fetch_PC: 0x1c
+
+CYCLE 69
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 0
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x14==0x14
+Writing 2 to 4for instruction 0x14
+L1 Cache (read hit): 2349203456<-[20]
+
+Reading in Fetch_PC: 0x20
+
+CYCLE 70
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read hit): 547749889<-[24]
+
+Reading in Fetch_PC: 0x24
+
+CYCLE 71
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 0
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x18==0x18
+Writing 3 to 5for instruction 0x18
+L1 Cache (read hit): 2<-[0]
+L1 Cache (write hit): [0]<-3
+Stalling for read after mem_read, id_ex.rt == 6 and if_id.rt == 6
+
+CYCLE 72
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x1c==0x1c
+L1 Cache (read hit): 3<-[0]
+L1 Cache (read hit): 3<-[0]
+L1 Cache (read hit): 2886074368<-[28]
+
+Reading in Fetch_PC: 0x28
+
+CYCLE 73
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 0
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x20==0x20
+Writing 3 to 6for instruction 0x20
+L1 Cache (read hit): 2349268992<-[2c]
+
+Reading in Fetch_PC: 0x2c
+
+CYCLE 74
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 3
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read hit): 2900754432<-[30]
+
+Reading in Fetch_PC: 0x30
+
+CYCLE 75
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 3
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x24==0x24
+Writing 4 to 6for instruction 0x24
+L1 Cache (read hit): 3<-[0]
+L1 Cache (write hit): [0]<-4
+Stalling for read after mem_read, id_ex.rt == 7 and if_id.rt == 6
+
+CYCLE 76
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x28==0x28
+L1 Cache (read hit): 4<-[0]
+L1 Cache (read hit): 4<-[0]
+L1 Cache (read hit): 2364014592<-[34]
+
+Reading in Fetch_PC: 0x34
+
+CYCLE 77
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 0
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x2c==0x2c
+Writing 4 to 7for instruction 0x2c
+L1 Cache (read hit): 285736962<-[38]
+
+Reading in Fetch_PC: 0x38
+
+CYCLE 78
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read hit): 2885746688<-[4]
+L1 Cache (write hit): [4]<-4
+Stalling for read after mem_read, id_ex.rt == 8 and if_id.rt == 8
+
+CYCLE 79
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x30==0x30
+L1 Cache (read hit): 4<-[4]
+L1 Cache (read hit): 4<-[4]
+L1 Cache (read hit): 0<-[3c]
+
+Reading in Fetch_PC: 0x3c
+
+CYCLE 80
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 0
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x34==0x34
+Writing 4 to 8for instruction 0x34
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+L2 Cache: replacing line at idx:1 way:0 due to conflicting address:40
+
+Reading in Fetch_PC: 0x40
+stalling IF
+
+CYCLE 81
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+Misprediction 
+Changing fetch_pc to 0x44
+L1 Cache (read miss) at address 44: 11 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 58 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 82
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x38==0x38
+L1 Cache (read miss) at address 44: 10 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 57 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 83
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 9 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 56 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 84
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 8 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 55 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 85
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 7 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 54 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 86
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 6 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 53 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 87
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 5 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 52 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 88
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 4 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 51 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 89
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 3 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 50 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 90
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 2 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 49 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 91
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 1 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 48 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 92
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L2 Cache (read miss) at address 44: 47 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 93
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 11 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 46 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 94
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 10 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 45 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 95
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 9 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 44 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 96
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 8 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 43 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 97
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 7 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 42 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 98
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 6 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 41 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 99
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 5 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 40 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 100
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 4 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 39 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 101
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 3 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 38 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 102
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 2 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 37 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 103
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 1 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 36 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 104
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L2 Cache (read miss) at address 44: 35 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 105
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 11 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 34 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 106
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 10 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 33 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 107
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 9 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 32 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 108
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 8 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 31 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 109
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 7 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 30 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 110
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 6 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 29 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 111
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 5 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 28 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 112
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 4 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 27 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 113
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 3 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 26 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 114
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 2 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 25 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 115
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 1 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 24 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 116
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L2 Cache (read miss) at address 44: 23 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 117
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 11 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 22 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 118
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 10 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 21 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 119
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 9 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 20 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 120
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 8 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 19 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 121
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 7 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 18 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 122
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 6 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 17 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 123
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 5 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 16 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 124
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 4 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 15 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 125
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 3 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 14 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 126
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 2 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 13 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 127
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 1 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 12 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 128
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L2 Cache (read miss) at address 44: 11 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 129
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 11 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 10 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 130
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 10 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 9 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 131
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 9 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 8 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 132
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 8 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 7 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 133
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 7 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 6 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 134
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 6 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 5 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 135
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 5 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 4 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 136
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 4 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 3 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 137
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 3 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 2 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 138
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 2 cycles remaining to be serviced
+L2 Cache (read miss) at address 44: 1 cycles remaining to be serviced
+MEM[40]: 0
+MEM[41]: 0
+MEM[42]: 0
+MEM[43]: 0
+MEM[44]: 0
+MEM[45]: 0
+MEM[46]: 0
+MEM[47]: 0
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 139
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read miss) at address 44: 1 cycles remaining to be serviced
+L2 Cache (read hit): 0<-[44]
+L1 Cache: replacing line at idx:1 way:0 due to conflicting address:44
+
+Reading in Fetch_PC: 0x44
+stalling IF
+
+CYCLE 140
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read hit): 0<-[44]
+
+Reading in Fetch_PC: 0x44
+
+CYCLE 141
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read hit): 0<-[48]
+
+Reading in Fetch_PC: 0x48
+
+CYCLE 142
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read hit): 0<-[4c]
+
+Reading in Fetch_PC: 0x4c
+
+CYCLE 143
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x0==0x0
+L1 Cache (read hit): 0<-[50]
+
+Reading in Fetch_PC: 0x50
+
+CYCLE 144
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x44==0x44
+Writing 0 to 0for instruction 0x44
+L1 Cache (read hit): 0<-[54]
+
+Reading in Fetch_PC: 0x54
+
+CYCLE 145
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x48==0x48
+Writing 0 to 0for instruction 0x48
+L1 Cache (read hit): 0<-[58]
+
+Reading in Fetch_PC: 0x58
+
+CYCLE 146
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x4c==0x4c
+Writing 0 to 0for instruction 0x4c
+L1 Cache (read hit): 0<-[5c]
+
+Reading in Fetch_PC: 0x5c
+
+CYCLE 147
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x50==0x50
+Writing 0 to 0for instruction 0x50
+L1 Cache (read hit): 0<-[60]
+
+Reading in Fetch_PC: 0x60
+
+CYCLE 148
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+Updating regfile.pc to 0x54==0x54
+Writing 0 to 0for instruction 0x54
+L1 Cache (read hit): 0<-[64]
+
+Reading in Fetch_PC: 0x64
+
+CYCLE 149
+R[0]: 0
+R[1]: 1
+R[2]: 1
+R[3]: 2
+R[4]: 2
+R[5]: 3
+R[6]: 4
+R[7]: 4
+R[8]: 4
+R[9]: 0
+R[10]: 0
+R[11]: 0
+R[12]: 0
+R[13]: 0
+R[14]: 0
+R[15]: 0
+R[16]: 0
+R[17]: 0
+R[18]: 0
+R[19]: 0
+R[20]: 0
+R[21]: 0
+R[22]: 0
+R[23]: 0
+R[24]: 0
+R[25]: 0
+R[26]: 0
+R[27]: 0
+R[28]: 0
+R[29]: 0
+R[30]: 0
+R[31]: 0
+
+Completed execution in 75 nanoseconds.
