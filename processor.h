@@ -11,13 +11,21 @@ class Processor {
         Memory *memory;
         Registers regfile;
         uint32_t fetch_pc;
-        // add other structures as needed
 
-        // pipelined processor
-        pipeline_buffer_t if_id; //  fetch wrtites to this, decode reads from it
-        pipeline_buffer_t id_ex; //  decode writes to this, alu reads from it
-        pipeline_buffer_t ex_mem; // alu writes to this, mem reads from it
-        pipeline_buffer_t mem_wb; // mem writes to this, writeback reads from it
+        // if_in is just pc
+        if_id_buffer_t if_out;
+        if_id_buffer_t id_in;
+
+        id_ex_buffer_t id_out;
+        id_ex_buffer_t ex_in;
+
+        ex_mem_buffer_t ex_out;
+        ex_mem_buffer_t mem_in;
+        
+        mem_wb_buffer_t mem_out;
+        mem_wb_buffer_t wb_in;
+        //wb_out is just regfile
+
         // add private functions
         void single_cycle_processor_advance();
         void pipelined_processor_advance();
@@ -27,6 +35,16 @@ class Processor {
             regfile.pc = 0;
             fetch_pc = 0;
             memory = mem; 
+
+            if_out.reset();
+            id_in.reset();
+            id_out.reset();
+            ex_in.reset();
+            ex_out.reset();
+            mem_in.reset();
+            mem_out.reset();
+            wb_in.reset();
+
             if_id.reset();
             id_ex.reset();
             ex_mem.reset();

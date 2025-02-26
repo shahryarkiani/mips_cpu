@@ -5,14 +5,9 @@
 	.ent	__start
 	.type	__start, @function
 __start:
-   	addi $1, $7, 37 # r1 = 15
-	sw   $1, 50
-	lw   $2, 50
-   	add  $3, $2, $1
-	nop
-	nop
-	nop
-	nop
-	nop
+   	add $1, $0, 25
+	add $2, $1, 55
+	add $3, $1, 25
+	endlabel:
 	.end	__start
 	.size	__start, .-__start

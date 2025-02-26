@@ -5,8 +5,16 @@
 #include <iostream>
 using namespace std;
 
-// Control signals for the processor
-struct pipeline_buffer_t {
+struct if_id_buffer_t {
+    uint32_t instruction;
+    uint32_t pc;
+    void reset() {
+        instruction = 0;
+        pc = 0;
+    }
+};
+
+struct id_ex_buffer_t {
     bool reg_dest;           // 0 if rt, 1 if rd
     bool jump;               // 1 if jummp
     bool jump_reg;           // 1 if jr
@@ -25,7 +33,6 @@ struct pipeline_buffer_t {
     bool zero_extend;        // 1 if immediate needs to be zero-extended
 
 
-    uint32_t pc = 0;
     // information about instruction stored in this stage
     int opcode;
     int rs;
@@ -34,24 +41,11 @@ struct pipeline_buffer_t {
     int shamt;
     int funct;
     uint32_t imm;
-    int addr;
+    uint32_t pc;
     // Variables to read data into(regfile -> read_data_)
     uint32_t read_data_1;
     uint32_t read_data_2;
-    uint32_t read_data_mem;
-    uint32_t alu_result;
-    
-    void print() {      // Prints the generated contol signals
-        cout << "REG_DEST: " << reg_dest << "\n";
-        cout << "JUMP: " << jump << "\n";
-        cout << "BRANCH: " << branch << "\n";
-        cout << "MEM_READ: " << mem_read << "\n";
-        cout << "MEM_TO_REG: " << mem_to_reg << "\n";
-        cout << "ALU_OP: " << ALU_op << "\n";
-        cout << "MEM_WRITE: " << mem_write << "\n";
-        cout << "ALU_SRC: " << ALU_src << "\n";
-        cout << "REG_WRITE: " << reg_write << "\n";
-    }
+
     void reset() {
         pc = 0;
         reg_dest = 0;         
@@ -78,11 +72,8 @@ struct pipeline_buffer_t {
         shamt = 0;
         funct = 0;
         imm = 0;
-        addr = 0;
         read_data_1 = 0;
         read_data_2 = 0;
-        read_data_mem = 0;
-        alu_result = 0;
     }
 
     // Extract information from instruction into variables
@@ -95,7 +86,6 @@ struct pipeline_buffer_t {
         shamt = (instruction >> 6) & 0x1f;
         funct = instruction & 0x3f;
         imm = (instruction & 0xffff);
-        addr = instruction & 0x3ffffff;
         read_data_1 = 0;
         read_data_2 = 0;
     }
@@ -189,7 +179,135 @@ struct pipeline_buffer_t {
     }
 };
 
+struct ex_mem_buffer_t {
+    bool reg_dest;           // 0 if rt, 1 if rd
+    bool jump;               // 1 if jummp
+    bool jump_reg;           // 1 if jr
+    bool link;               // 1 if jal
+    bool branch;             // 1 if branch
+    bool bne;                // 1 if bne
+    bool mem_read;           // 1 if memory needs to be read
+    bool mem_to_reg;         // 1 if memory needs to written to reg
+    bool mem_write;          // 1 if needs to be written to memory
+    bool halfword;           // 1 if loading/storing halfword from memory
+    bool byte;               // 1 if loading/storing a byte from memory
+    bool reg_write;          // 1 if need to write back to reg file
 
+    // information about instruction stored in this stage
+    int opcode;
+    int rs;
+    int rt;
+    int rd;
+    uint32_t imm;
+    uint32_t pc;
+    // Variables to read data into(regfile -> read_data_)
+    uint32_t read_data_1;
+    uint32_t read_data_2;
+    uint32_t alu_result;
 
+    void reset() {
+        pc = 0;
+        reg_dest = 0;         
+        jump = 0;             
+        jump_reg = 0;         
+        link = 0;             
+        branch = 0;           
+        bne = 0;              
+        mem_read = 0;         
+        mem_to_reg = 0;       
+        mem_write = 0;         
+        halfword = 0;          
+        byte = 0;              
+        reg_write = 0;          
+        opcode = 0;
+        rs = 0;
+        rs = 0;
+        rt = 0;
+        rd = 0;
+        imm = 0;
+        read_data_1 = 0;
+        read_data_2 = 0;
+        alu_result = 0;
+    }    
+
+    void load_from(const id_ex_buffer_t& id_ex_buffer) {
+        reg_dest = id_ex_buffer.reg_dest;
+        jump = id_ex_buffer.jump;
+        jump_reg = id_ex_buffer.jump_reg;
+        link = id_ex_buffer.link;
+        branch = id_ex_buffer.branch;
+        bne = id_ex_buffer.bne;
+        mem_read = id_ex_buffer.mem_read;
+        mem_to_reg = id_ex_buffer.mem_to_reg;
+        mem_write = id_ex_buffer.mem_write;
+        halfword = id_ex_buffer.halfword;
+        byte = id_ex_buffer.byte;
+        reg_write = id_ex_buffer.reg_write;
+
+        opcode = id_ex_buffer.opcode;
+        rs = id_ex_buffer.rs;
+        rt = id_ex_buffer.rt;
+        rd = id_ex_buffer.rd;
+        imm = id_ex_buffer.imm;
+        pc = id_ex_buffer.pc;
+        read_data_1 = id_ex_buffer.read_data_1;
+        read_data_2 = id_ex_buffer.read_data_2;
+    }
+};
+
+struct mem_wb_buffer_t {
+    bool reg_dest;           // 0 if rt, 1 if rd
+    bool link;               // 1 if jal
+    bool mem_to_reg;         // 1 if memory needs to written to reg
+    bool reg_write;          // 1 if need to write back to reg file
+
+    // information about instruction stored in this stage
+    int opcode;
+    int rs;
+    int rt;
+    int rd;
+    uint32_t imm;
+    uint32_t pc;
+    // Variables to read data into(regfile -> read_data_)
+    uint32_t read_data_1;
+    uint32_t read_data_2;
+    uint32_t alu_result;
+    uint32_t read_data_mem;
+
+    void reset() {
+        pc = 0;
+        reg_dest = 0;         
+        link = 0;             
+        mem_to_reg = 0;       
+        reg_write = 0;          
+        opcode = 0;
+        rs = 0;
+        rs = 0;
+        rt = 0;
+        rd = 0;
+        imm = 0;
+        read_data_1 = 0;
+        read_data_2 = 0;
+        alu_result = 0;
+        read_data_mem = 0;
+    }    
+
+    void load_from(const ex_mem_buffer_t& mem_ex_buffer) {
+        reg_dest = mem_ex_buffer.reg_dest;
+        link = mem_ex_buffer.link;
+        mem_to_reg = mem_ex_buffer.mem_to_reg;
+        reg_write = mem_ex_buffer.reg_write;
+
+        opcode = mem_ex_buffer.opcode;
+        rs = mem_ex_buffer.rs;
+        rt = mem_ex_buffer.rt;
+        rd = mem_ex_buffer.rd;
+        imm = mem_ex_buffer.imm;
+        pc = mem_ex_buffer.pc;
+        read_data_1 = mem_ex_buffer.read_data_1;
+        read_data_2 = mem_ex_buffer.read_data_2;
+        alu_result = mem_ex_buffer.alu_result;
+    }
+};
 
 #endif
