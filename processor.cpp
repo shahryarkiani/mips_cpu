@@ -120,21 +120,17 @@ void Processor::single_cycle_processor_advance() {
 }
 
 void Processor::pipelined_processor_advance() {
-    // pipelined processor logic goes here
-    // does nothing currently -- if you call it from the cmd line, you'll run into an infinite loop
-    // might be helpful to implement stages in a separate module
-
     // need structs (representing buffer) for each stage's operations
 
     // We process through the pipeline in (kind-of) reverse
-    
     // Writeback stage
     int write_reg = mem_wb.link ? 31 : mem_wb.reg_dest ? mem_wb.rd : mem_wb.rt;
     uint32_t write_data = mem_wb.link ? fetch_pc + 8 : mem_wb.mem_to_reg ? mem_wb.read_data_mem : mem_wb.alu_result;  
     regfile.access(0, 0, mem_wb.read_data_2, mem_wb.read_data_2, write_reg, mem_wb.reg_write, write_data);
     regfile.pc = mem_wb.pc;
+    DEBUG(cout << "Updating regfile.pc to 0x" << std::hex << regfile.pc << "==0x" << mem_wb.pc << std::dec << "\n");
     if(mem_wb.reg_write)
-    DEBUG(cout << "Writing " << write_data << " to " << write_reg << "for instruction " << mem_wb.pc << "\n");
+    DEBUG(cout << "Writing " << write_data << " to " << write_reg << "for instruction 0x" << std::hex << mem_wb.pc << std::dec << "\n");
     // Memory stage   
     
     // Handle data hazard first
@@ -155,8 +151,8 @@ void Processor::pipelined_processor_advance() {
         return;
     }
     
-    write_data_mem = control.halfword ? (read_data_mem & 0xffff0000) | (ex_mem.read_data_2 & 0xffff) : 
-                    control.byte ? (read_data_mem & 0xffffff00) | (ex_mem.read_data_2 & 0xff): ex_mem.read_data_2;
+    write_data_mem = ex_mem.halfword ? (read_data_mem & 0xffff0000) | (ex_mem.read_data_2 & 0xffff) : 
+                    ex_mem.byte ? (read_data_mem & 0xffffff00) | (ex_mem.read_data_2 & 0xff): ex_mem.read_data_2;
     read_success = memory->access(ex_mem.alu_result, read_data_mem, write_data_mem, ex_mem.mem_read, ex_mem.mem_write);
     if(!read_success) {
         DEBUG(cout << "Couldn't write successfully\n");
@@ -166,13 +162,12 @@ void Processor::pipelined_processor_advance() {
     // Now we need to transfer information from ex_mem to mem_wb
     mem_wb = ex_mem; // Almost everything is the same
     mem_wb.read_data_mem = read_data_mem; // but we need to pass the result of the memory read through
-
     // if we executed a branch instruction, we need to check if we've mispredicted
     if(ex_mem.branch && ((ex_mem.bne && ex_mem.alu_result) || (!ex_mem.bne && !ex_mem.alu_result))) {
         // it was a branch, so we need to flush the pipeline and change the pc
         DEBUG(cout << "Misprediction \n");
         fetch_pc = ex_mem.pc + 4 + (ex_mem.imm << 2);
-        DEBUG(cout << "Changing fetch_pc to" << fetch_pc << "\n" );
+        DEBUG(cout << "Changing fetch_pc to 0x" << std::hex << fetch_pc << std::dec << "\n" );
         id_ex.reset();
         if_id.reset();
     }
@@ -201,6 +196,11 @@ void Processor::pipelined_processor_advance() {
     ex_mem = id_ex;
     ex_mem.alu_result = alu_result;
 
+    bool dont_fetch = false;
+
+    if(ex_mem.branch && ((ex_mem.bne && ex_mem.alu_result) || (!ex_mem.bne && !ex_mem.alu_result))) {
+        dont_fetch = true;
+    }
 
 
     // we need to stall if this we're doing a mem_read into a register followed by using that register
@@ -216,9 +216,13 @@ void Processor::pipelined_processor_advance() {
     id_ex.imm = if_id.zero_extend ? if_id.imm : (if_id.imm >> 15) ? 0xffff0000 | if_id.imm : if_id.imm;
     
     // Fetch Stage
+    if(dont_fetch) {
+        if_id.reset();
+        return;
+    }
     uint32_t instruction;
     bool mem_success = memory->access(fetch_pc, instruction, 0, 1, 0);
-    DEBUG(cout << "\nPC: 0x" << std::hex << fetch_pc << std::dec << "\n");
+    DEBUG(cout << "\nReading in Fetch_PC: 0x" << std::hex << fetch_pc << std::dec << "\n");
     if(!mem_success) {
         if_id.reset();
         DEBUG(cout << "stalling IF\n");
