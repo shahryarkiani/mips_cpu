@@ -227,22 +227,22 @@ void Processor::pipelined_processor_advance() {
     // Update Pipeline Registers and do stalling if needed
     {   
         if(branch_mispredict) {
-            cout << "Misprediction\n";
+            DEBUG(cout << "Misprediction\n";)
             ex_out.reset();
             id_out.reset();
         }
         if(mem_stall) {
-            cout << "mem stalling\n";
+            DEBUG(cout << "mem stalling\n";)
             return;
         }
         if (load_use_stall) {
-            cout << "Stalling for use after mem read for ex_in.rt == " << ex_in.rt << " and id_out.rt == " << id_out.rt << "\n";
+            DEBUG(cout << "Stalling for use after mem read for ex_in.rt == " << ex_in.rt << " and id_out.rt == " << id_out.rt << "\n";)
             id_out.reset();
             ex_in = id_out;
             mem_in = ex_out;
             wb_in = mem_out;
         } else if (if_stall) {
-            cout << "IF Stalling\n";
+            DEBUG(cout << "IF Stalling\n";)
             if_out.reset();
             
             id_in = if_out;
