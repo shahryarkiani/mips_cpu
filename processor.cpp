@@ -120,118 +120,141 @@ void Processor::single_cycle_processor_advance() {
 }
 
 void Processor::pipelined_processor_advance() {
-    // need structs (representing buffer) for each stage's operations
 
-    // We process through the pipeline in (kind-of) reverse
-    // Writeback stage
-    int write_reg = mem_wb.link ? 31 : mem_wb.reg_dest ? mem_wb.rd : mem_wb.rt;
-    uint32_t write_data = mem_wb.link ? fetch_pc + 8 : mem_wb.mem_to_reg ? mem_wb.read_data_mem : mem_wb.alu_result;  
-    regfile.access(0, 0, mem_wb.read_data_2, mem_wb.read_data_2, write_reg, mem_wb.reg_write, write_data);
-    regfile.pc = mem_wb.pc;
-    DEBUG(cout << "Updating regfile.pc to 0x" << std::hex << regfile.pc << "==0x" << mem_wb.pc << std::dec << "\n");
-    if(mem_wb.reg_write)
-    DEBUG(cout << "Writing " << write_data << " to " << write_reg << "for instruction 0x" << std::hex << mem_wb.pc << std::dec << "\n");
-    // Memory stage   
-    
-    // Handle data hazard first
-    int dest_reg = mem_wb.reg_dest ? mem_wb.rd : mem_wb.rt;
-
-    if(dest_reg == id_ex.rs && mem_wb.reg_write) {
-        id_ex.read_data_1 = mem_wb.mem_read ? mem_wb.read_data_mem : mem_wb.alu_result;
-    }
-    if(dest_reg == id_ex.rt && mem_wb.reg_write) {
-        id_ex.read_data_2 = mem_wb.mem_read ? mem_wb.read_data_mem : mem_wb.alu_result;
-    }
-
-    uint32_t read_data_mem;
-    uint32_t write_data_mem = 0;
-    bool read_success = memory->access(ex_mem.alu_result, read_data_mem, 0, ex_mem.mem_read | ex_mem.mem_write, 0);
-    if(!read_success) {
-        DEBUG(cout << "Couldn't read successfully\n");
-        return;
-    }
-    
-    write_data_mem = ex_mem.halfword ? (read_data_mem & 0xffff0000) | (ex_mem.read_data_2 & 0xffff) : 
-                    ex_mem.byte ? (read_data_mem & 0xffffff00) | (ex_mem.read_data_2 & 0xff): ex_mem.read_data_2;
-    read_success = memory->access(ex_mem.alu_result, read_data_mem, write_data_mem, ex_mem.mem_read, ex_mem.mem_write);
-    if(!read_success) {
-        DEBUG(cout << "Couldn't write successfully\n");
-    }
-
-    read_data_mem &= ex_mem.halfword ? 0xffff : ex_mem.byte ? 0xff : 0xffffffff;
-    // Now we need to transfer information from ex_mem to mem_wb
-    mem_wb = ex_mem; // Almost everything is the same
-    mem_wb.read_data_mem = read_data_mem; // but we need to pass the result of the memory read through
-    // if we executed a branch instruction, we need to check if we've mispredicted
-    if(ex_mem.branch && ((ex_mem.bne && ex_mem.alu_result) || (!ex_mem.bne && !ex_mem.alu_result))) {
-        // it was a branch, so we need to flush the pipeline and change the pc
-        DEBUG(cout << "Misprediction \n");
-        fetch_pc = ex_mem.pc + 4 + (ex_mem.imm << 2);
-        DEBUG(cout << "Changing fetch_pc to 0x" << std::hex << fetch_pc << std::dec << "\n" );
-        id_ex.reset();
-        if_id.reset();
-    }
-
-    // Execute stage
-
-    // handle data hazard here
-    dest_reg = ex_mem.reg_dest ? ex_mem.rd : ex_mem.rt;
-
-
-    if(dest_reg == id_ex.rs && ex_mem.reg_write) {
-        id_ex.read_data_1 = ex_mem.alu_result;
-    } 
-    if (dest_reg == id_ex.rt && ex_mem.reg_write) {
-        id_ex.read_data_2 = ex_mem.alu_result;
-    }
-
-    alu.generate_control_inputs(id_ex.ALU_op, id_ex.funct, id_ex.opcode);
-    
-    uint32_t operand_1 = id_ex.shift ? id_ex.shamt : id_ex.read_data_1;
-    uint32_t operand_2 = id_ex.ALU_src ? id_ex.imm : id_ex.read_data_2;
-    uint32_t alu_zero = 0;
-
-    uint32_t alu_result = alu.execute(operand_1, operand_2, alu_zero);
-    // Now write to ex_mem 
-    ex_mem = id_ex;
-    ex_mem.alu_result = alu_result;
-
+    bool if_stall = false;
+    bool mem_stall = false;
+    bool branch_mispredict = false;
     bool dont_fetch = false;
+    bool load_use_stall = false;
 
-    if(ex_mem.branch && ((ex_mem.bne && ex_mem.alu_result) || (!ex_mem.bne && !ex_mem.alu_result))) {
-        dont_fetch = true;
-    }
+    // Writeback
+    {
+        int write_reg = wb_in.link ? 31 : wb_in.reg_dest ? wb_in.rd : wb_in.rt;
 
-
-    // we need to stall if this we're doing a mem_read into a register followed by using that register
-    if(id_ex.mem_read && (id_ex.rt == if_id.rs || id_ex.rt == if_id.rs)) {
-        DEBUG(cout << "Stalling for read after mem_read\n");
-        id_ex.reset();
-        return; // don't progress the next two stages 
-    }
-
-    // Decode stage
-    id_ex = if_id;
-    regfile.access(if_id.rs, if_id.rt, id_ex.read_data_1, id_ex.read_data_2, 0, 0, 0);
-    id_ex.imm = if_id.zero_extend ? if_id.imm : (if_id.imm >> 15) ? 0xffff0000 | if_id.imm : if_id.imm;
+        uint32_t write_data = wb_in.link ? regfile.pc + 8 : wb_in.mem_to_reg ? wb_in.read_data_mem : wb_in.alu_result;  
     
-    // Fetch Stage
-    if(dont_fetch) {
-        if_id.reset();
-        return;
+        // Write Back
+        regfile.access(0, 0, wb_in.read_data_2, wb_in.read_data_2, write_reg, wb_in.reg_write, write_data);
+        regfile.pc = wb_in.pc;
     }
-    uint32_t instruction;
-    bool mem_success = memory->access(fetch_pc, instruction, 0, 1, 0);
-    DEBUG(cout << "\nReading in Fetch_PC: 0x" << std::hex << fetch_pc << std::dec << "\n");
-    if(!mem_success) {
-        if_id.reset();
-        DEBUG(cout << "stalling IF\n");
-        return;
+    // Instruction Decode
+    {
+        id_out.load(id_in.instruction);
+        id_out.pc = id_in.pc;
+        regfile.access(id_out.rs, id_out.rt, id_out.read_data_1, id_out.read_data_2, 0, 0, 0);
+        id_out.imm = id_out.zero_extend ? id_out.imm : (id_out.imm >> 15) ? 0xffff0000 | id_out.imm : id_out.imm;
     }
-    if_id.load(instruction);
-    if_id.pc = fetch_pc;
+    // Execute
+    {
+        if(ex_in.mem_read && ( (ex_in.rt == id_out.rs) || ((ex_in.rt == id_out.rt) && id_out.reg_dest)) ) {
+            load_use_stall = true;
+        }
 
+        int reg_write = wb_in.reg_dest ? wb_in.rd : wb_in.rt;
+        if(wb_in.reg_write && reg_write == ex_in.rs) {
+            ex_in.read_data_1 = wb_in.mem_to_reg ? wb_in.read_data_mem : wb_in.alu_result; 
+        }
+        if(wb_in.reg_write && reg_write == ex_in.rt) {
+            ex_in.read_data_2 = wb_in.mem_to_reg ? wb_in.read_data_mem : wb_in.alu_result; 
+        }
 
-    // update pc to next value
-    fetch_pc += 4;
+        reg_write = mem_in.reg_dest ? mem_in.rd : mem_in.rt;
+        if(mem_in.reg_write && reg_write == ex_in.rs) {
+            ex_in.read_data_1 = mem_in.alu_result;
+        }
+        if(mem_in.reg_write && reg_write == ex_in.rt) {
+            ex_in.read_data_2 = mem_in.alu_result;
+        }
+
+        alu.generate_control_inputs(ex_in.ALU_op, ex_in.funct, ex_in.opcode);
+        uint32_t operand_1 = ex_in.shift ? ex_in.shamt : ex_in.read_data_1;
+        uint32_t operand_2 = ex_in.ALU_src ? ex_in.imm : ex_in.read_data_2;
+        uint32_t alu_zero = 0;
+        uint32_t alu_result = alu.execute(operand_1, operand_2, alu_zero);
+        
+        if(ex_in.branch && ((ex_in.bne && !alu_zero) || (!ex_in.bne && alu_zero))) {
+            dont_fetch = true;
+        }
+
+        ex_out.load_from(ex_in);
+        ex_out.alu_result = alu_result;
+    }
+    // Memory
+    {
+        // Also check if we have a branch misprediction
+
+        if(mem_in.branch && ((mem_in.bne && mem_in.alu_result) || (!mem_in.bne && !mem_in.alu_result))) {
+            branch_mispredict = true;
+            fetch_pc = mem_in.pc + 4 + (mem_in.imm << 2);
+        }
+        uint32_t read_data_mem = 0;
+        uint32_t write_data_mem = 0;
+        // First read no matter whether it is a load or a store
+        bool mem_success = memory->access(mem_in.alu_result, read_data_mem, 0, 
+            mem_in.mem_read | mem_in.mem_write, 0);
+
+        if(mem_success) {
+            // Stores: sb or sh mask and preserve original leftmost bits
+            write_data_mem = mem_in.halfword ? (read_data_mem & 0xffff0000) | (mem_in.read_data_2 & 0xffff) : 
+                            mem_in.byte ? (read_data_mem & 0xffffff00) | (mem_in.read_data_2 & 0xff): mem_in.read_data_2;
+            // Write to memory only if mem_write is 1, i.e store
+            memory->access(mem_in.alu_result, read_data_mem, write_data_mem, 
+                mem_in.mem_read, mem_in.mem_write);
+            // Loads: lbu or lhu modify read data by masking
+            read_data_mem &= mem_in.halfword ? 0xffff : mem_in.byte ? 0xff : 0xffffffff;
+
+            mem_out.load_from(mem_in);
+            mem_out.read_data_mem = read_data_mem;
+        } else {
+            mem_stall = true;
+            DEBUG(cout << "mem_stalling\n";)
+        }
+    }
+    // Instruction Fetch
+    {   
+        if(!mem_stall && !dont_fetch && !load_use_stall) {
+            DEBUG(cout << "Fetch_Pc is 0x" << std::hex << fetch_pc << std::dec << "\n";);
+            bool mem_success = memory->access(fetch_pc, if_out.instruction, 0, 1, 0);
+            if(!mem_success) {
+                if_out.pc = 0;
+                if_out.instruction = 0;
+                if_stall = true;
+            } else {
+                if_out.pc = fetch_pc;
+            }
+        } 
+    }
+    // Update Pipeline Registers and do stalling if needed
+    {   
+        if(branch_mispredict) {
+            cout << "Misprediction\n";
+            ex_out.reset();
+            id_out.reset();
+        }
+        if(mem_stall) {
+            cout << "mem stalling\n";
+            return;
+        }
+        if (load_use_stall) {
+            cout << "Stalling for use after mem read for ex_in.rt == " << ex_in.rt << " and id_out.rt == " << id_out.rt << "\n";
+            id_out.reset();
+            ex_in = id_out;
+            mem_in = ex_out;
+            wb_in = mem_out;
+        } else if (if_stall) {
+            cout << "IF Stalling\n";
+            if_out.reset();
+            
+            id_in = if_out;
+            ex_in = id_out;
+            mem_in = ex_out;
+            wb_in = mem_out;
+        } else {
+            fetch_pc += 4;
+            id_in = if_out;
+            ex_in = id_out;
+            mem_in = ex_out;
+            wb_in = mem_out;
+        }
+    }
 }
