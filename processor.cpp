@@ -186,6 +186,7 @@ void Processor::pipelined_processor_advance() {
         if(mem_in.branch && ((mem_in.bne && mem_in.alu_result) || (!mem_in.bne && !mem_in.alu_result))) {
             branch_mispredict = true;
             fetch_pc = mem_in.pc + 4 + (mem_in.imm << 2);
+            DEBUG(cout << "mem_in.pc == " << mem_in.pc << "\n";)
         }
         uint32_t read_data_mem = 0;
         uint32_t write_data_mem = 0;
@@ -216,8 +217,6 @@ void Processor::pipelined_processor_advance() {
             DEBUG(cout << "Fetch_Pc is 0x" << std::hex << fetch_pc << std::dec << "\n";);
             bool mem_success = memory->access(fetch_pc, if_out.instruction, 0, 1, 0);
             if(!mem_success) {
-                if_out.pc = 0;
-                if_out.instruction = 0;
                 if_stall = true;
             } else {
                 if_out.pc = fetch_pc;

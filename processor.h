@@ -44,11 +44,6 @@ class Processor {
             mem_in.reset();
             mem_out.reset();
             wb_in.reset();
-
-            if_id.reset();
-            id_ex.reset();
-            ex_mem.reset();
-            mem_wb.reset();
         }
 
         // Get PC
