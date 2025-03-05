@@ -229,6 +229,8 @@ void Processor::pipelined_processor_advance() {
             DEBUG(cout << "Misprediction\n";)
             ex_out.reset();
             id_out.reset();
+            ex_out.pc = mem_in.pc;
+            id_out.pc = mem_in.pc;
         }
         if(mem_stall) {
             DEBUG(cout << "mem stalling\n";)
@@ -243,7 +245,11 @@ void Processor::pipelined_processor_advance() {
         } else if (if_stall) {
             DEBUG(cout << "IF Stalling\n";)
             if_out.reset();
-            
+            if(branch_mispredict) {
+                if_out.pc = mem_in.pc;
+            } else {
+                if_out.pc = id_in.pc;
+            }
             id_in = if_out;
             ex_in = id_out;
             mem_in = ex_out;
