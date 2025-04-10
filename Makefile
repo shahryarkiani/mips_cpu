@@ -1,7 +1,7 @@
 
 CXX = g++
 CXXFLAGS= -g3 -Wall -std=c++11 -DENABLE_DEBUG 
-OPTFLAGS= -O3
+OPTFLAGS= -O2
 ASM = mipsel-linux-gnu-gcc
 
 
