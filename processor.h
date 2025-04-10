@@ -1,8 +1,12 @@
+#ifndef _PROCESSOR_H
+#define _PROCESSOR_H
 #include "memory.h"
 #include "regfile.h"
 #include "ALU.h"
 #include "control.h"
 #include "pipeline.h"
+#include "superscalar_processor.h"
+#include <memory>
 class Processor {
     private:
         int opt_level;
@@ -10,6 +14,7 @@ class Processor {
         control_t control;
         Memory *memory;
         Registers regfile;
+        unique_ptr<SuperscalarProcessor> superscalar_processor;
         uint32_t fetch_pc;
 
         // if_in is just pc
@@ -29,7 +34,7 @@ class Processor {
         // add private functions
         void single_cycle_processor_advance();
         void pipelined_processor_advance();
- 
+        void superscalar_processor_advance();
     public:
         Processor(Memory *mem) { 
             regfile.pc = 0;
@@ -58,3 +63,4 @@ class Processor {
         // Advances the processor to an appropriate state every cycle
         void advance(); 
 };
+#endif

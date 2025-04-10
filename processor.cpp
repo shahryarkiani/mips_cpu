@@ -1,9 +1,12 @@
 #include <cstdint>
+#include <memory>
 #include <iostream>
+#include <memory>
 #include "processor.h"
 #include "control.h"
 #include "pipeline.h"
 #include "regfile.h"
+#include "superscalar_processor.h"
 using namespace std;
 
 #ifdef ENABLE_DEBUG
@@ -33,6 +36,9 @@ void Processor::initialize(int level) {
    
     opt_level = level;
     // Optimization level-specific initialization
+    if(opt_level == 2) {
+        superscalar_processor = unique_ptr<SuperscalarProcessor>(new SuperscalarProcessor(memory, regfile));
+    }
 }
 
 void Processor::advance() {
@@ -40,6 +46,8 @@ void Processor::advance() {
         case 0: single_cycle_processor_advance();
                 break;
         case 1: pipelined_processor_advance();
+                break;
+        case 2: superscalar_processor_advance();
                 break;
         // other optimization levels go here
         default: break;
@@ -262,4 +270,8 @@ void Processor::pipelined_processor_advance() {
             wb_in = mem_out;
         }
     }
+}
+
+void Processor::superscalar_processor_advance() {
+    superscalar_processor->advance();
 }
