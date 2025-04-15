@@ -1,4 +1,5 @@
 #include "superscalar_processor.h"
+#include <cstdint>
 
 void SuperscalarProcessor::advance() {
     
@@ -49,22 +50,59 @@ void SuperscalarProcessor::advance() {
             load_use_stall_b = true;
         }
 
-        // TODO: finish forwarding logic 
-        int reg_write = wb_in.reg_dest ? wb_in.rd : wb_in.rt;
-        if(wb_in.reg_write && reg_write == ex_in.rs) {
-            ex_in.read_data_1 = wb_in.mem_to_reg ? wb_in.read_data_mem : wb_in.alu_result; 
+        // Forwarding for pipeline A, first we check if we need to forward from the previous A's wb
+        int reg_write = wb_in_a.reg_dest ? wb_in_a.rd : wb_in_a.rt;
+        if(wb_in_a.reg_write) {
+            auto read_data = wb_in_a.mem_to_reg ? wb_in_a.read_data_mem : wb_in_a.alu_result;
+            if(reg_write == ex_in_a.rs) {ex_in_a.read_data_1 = read_data;}
+            else if(reg_write == ex_in_a.rt) {ex_in_a.read_data_2 = read_data;}
         }
-        if(wb_in.reg_write && reg_write == ex_in.rt) {
-            ex_in.read_data_2 = wb_in.mem_to_reg ? wb_in.read_data_mem : wb_in.alu_result; 
+        // Or if we need to do it from the previous B's wb, which is newer
+        reg_write = wb_in_b.reg_dest ? wb_in_b.rd : wb_in_b.rt;
+        if(wb_in_b.reg_write) {
+            auto read_data = wb_in_b.mem_to_reg ? wb_in_b.read_data_mem : wb_in_b.alu_result;
+            if(reg_write == ex_in_a.rs) {ex_in_a.read_data_1 = read_data;}
+            else if(reg_write == ex_in_a.rt) {ex_in_a.read_data_2 = read_data;}
+        }
+        // Then we do the same forwarding but for pipeline B,
+        reg_write = wb_in_a.reg_dest ? wb_in_a.rd : wb_in_a.rt;
+        if(wb_in_a.reg_write) {
+            auto read_data = wb_in_a.mem_to_reg ? wb_in_a.read_data_mem : wb_in_a.alu_result;
+            if(reg_write == ex_in_b.rs) {ex_in_b.read_data_1 = read_data;}
+            else if(reg_write == ex_in_b.rt) {ex_in_b.read_data_2 = read_data;}
+        }
+        reg_write = wb_in_b.reg_dest ? wb_in_b.rd : wb_in_b.rt;
+        if(wb_in_b.reg_write) {
+            auto read_data = wb_in_b.mem_to_reg ? wb_in_b.read_data_mem : wb_in_b.alu_result;
+            if(reg_write == ex_in_b.rs) {ex_in_b.read_data_1 = read_data;}
+            else if(reg_write == ex_in_b.rt) {ex_in_b.read_data_2 = read_data;}
         }
 
-        reg_write = mem_in.reg_dest ? mem_in.rd : mem_in.rt;
-        if(mem_in.reg_write && reg_write == ex_in.rs) {
-            ex_in.read_data_1 = mem_in.alu_result;
+
+        // Forwarding for pipeline A, from mem
+        reg_write = mem_in_a.reg_dest ? mem_in_a.rd : mem_in_a.rt;
+        if(mem_in_a.reg_write) {
+            if (reg_write == ex_in_a.rs) {ex_in_a.read_data_1 = mem_in_a.alu_result;}
+            else if (reg_write == ex_in_a.rt) {ex_in_a.read_data_2 = mem_in_a.alu_result;}
         }
-        if(mem_in.reg_write && reg_write == ex_in.rt) {
-            ex_in.read_data_2 = mem_in.alu_result;
+        reg_write = mem_in_b.reg_dest ? mem_in_b.rd : mem_in_b.rt;
+        if(mem_in_b.reg_write) {
+            if (reg_write == ex_in_a.rs) {ex_in_a.read_data_1 = mem_in_b.alu_result;}
+            else if (reg_write == ex_in_a.rt) {ex_in_a.read_data_2 = mem_in_b.alu_result;}
         }
+        // Forwarding for Pipeline B, from mem
+        reg_write = mem_in_a.reg_dest ? mem_in_a.rd : mem_in_a.rt;
+        if(mem_in_a.reg_write) {
+            if (reg_write == ex_in_b.rs) {ex_in_b.read_data_1 = mem_in_a.alu_result;}
+            else if (reg_write == ex_in_b.rt) {ex_in_b.read_data_2 = mem_in_a.alu_result;}
+        }
+        reg_write = mem_in_b.reg_dest ? mem_in_b.rd : mem_in_b.rt;
+        if(mem_in_b.reg_write) {
+            if (reg_write == ex_in_b.rs) {ex_in_b.read_data_1 = mem_in_b.alu_result;}
+            else if (reg_write == ex_in_b.rt) {ex_in_b.read_data_2 = mem_in_b.alu_result;}
+        }
+
+        // TODO: finish doing alu operations
 
         alu.generate_control_inputs(ex_in.ALU_op, ex_in.funct, ex_in.opcode);
         uint32_t operand_1 = ex_in.shift ? ex_in.shamt : ex_in.read_data_1;
