@@ -158,6 +158,7 @@ void Processor::pipelined_processor_advance() {
             load_use_stall = true;
         }
 
+        // Forwarding from writeback
         int reg_write = wb_in.reg_dest ? wb_in.rd : wb_in.rt;
         if(wb_in.reg_write && reg_write == ex_in.rs) {
             ex_in.read_data_1 = wb_in.mem_to_reg ? wb_in.read_data_mem : wb_in.alu_result; 
@@ -166,6 +167,7 @@ void Processor::pipelined_processor_advance() {
             ex_in.read_data_2 = wb_in.mem_to_reg ? wb_in.read_data_mem : wb_in.alu_result; 
         }
 
+        // Forwarding from mem
         reg_write = mem_in.reg_dest ? mem_in.rd : mem_in.rt;
         if(mem_in.reg_write && reg_write == ex_in.rs) {
             ex_in.read_data_1 = mem_in.alu_result;
