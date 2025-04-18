@@ -102,25 +102,32 @@ void SuperscalarProcessor::advance() {
             else if (reg_write == ex_in_b.rt) {ex_in_b.read_data_2 = mem_in_b.alu_result;}
         }
 
-        // TODO: finish doing alu operations
-
-        alu.generate_control_inputs(ex_in.ALU_op, ex_in.funct, ex_in.opcode);
-        uint32_t operand_1 = ex_in.shift ? ex_in.shamt : ex_in.read_data_1;
-        uint32_t operand_2 = ex_in.ALU_src ? ex_in.imm : ex_in.read_data_2;
         uint32_t alu_zero = 0;
-        uint32_t alu_result = alu.execute(operand_1, operand_2, alu_zero);
-        
-        if(ex_in.branch && ((ex_in.bne && !alu_zero) || (!ex_in.bne && alu_zero))) {
-            dont_fetch = true;
-        }
 
-        ex_out.load_from(ex_in);
-        ex_out.alu_result = alu_result;
+        alu_a.generate_control_inputs(ex_in_a.ALU_op, ex_in_a.funct, ex_in_a.opcode);
+        uint32_t operand_1_a = ex_in_a.shift ? ex_in_a.shamt : ex_in_a.read_data_1;
+        uint32_t operand_2_a = ex_in_a.ALU_src ? ex_in_a.imm : ex_in_a.read_data_2;
+        uint32_t alu_result_a = alu_a.execute(operand_1_a, operand_2_a, alu_zero);
+
+        alu_b.generate_control_inputs(ex_in_b.ALU_op, ex_in_b.funct, ex_in_b.opcode);
+        uint32_t operand_1_b = ex_in_b.shift ? ex_in_b.shamt : ex_in_b.read_data_1;
+        uint32_t operand_2_b = ex_in_b.ALU_src ? ex_in_b.imm : ex_in_b.read_data_2;
+        uint32_t alu_result_b = alu_b.execute(operand_1_b, operand_2_b, alu_zero);
+        
+        // // This is to work with the original code
+        // if(ex_in.branch && ((ex_in.bne && !alu_zero) || (!ex_in.bne && alu_zero))) {
+        //     dont_fetch = true;
+        // }
+
+        ex_out_a.load_from(ex_in_a);
+        ex_out_a.alu_result = alu_result_a;
+        
+        ex_out_b.load_from(ex_in_b);
+        ex_out_b.alu_result = alu_result_b;
     }
     // Memory
     {
-        // Also check if we have a branch misprediction
-
+        //Check if we have a branch misprediction
         if(mem_in.branch && ((mem_in.bne && mem_in.alu_result) || (!mem_in.bne && !mem_in.alu_result))) {
             branch_mispredict = true;
             fetch_pc = mem_in.pc + 4 + (mem_in.imm << 2);

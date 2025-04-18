@@ -9,7 +9,8 @@
 class SuperscalarProcessor {
     private:
         int opt_level;
-        ALU alu;
+        ALU alu_a;
+        ALU alu_b;
         control_t control;
         Memory *memory;
         Registers &regfile;
