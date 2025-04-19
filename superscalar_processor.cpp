@@ -9,7 +9,7 @@ void SuperscalarProcessor::advance() {
     bool dont_fetch = false;
     bool load_use_stall_a = false;
     bool load_use_stall_b = false;
-
+    bool load_use_stall = false;
     // We need to ensure that the older instr is always in pipeline_a
     // and the younger one is always in pipeline_b
 
@@ -36,6 +36,8 @@ void SuperscalarProcessor::advance() {
         regfile.access(id_out_a.rs, id_out_a.rt, id_out_a.read_data_1, id_out_a.read_data_2, 0, 0, 0);
         regfile.access(id_out_b.rs, id_out_b.rt, id_out_b.read_data_1, id_out_b.read_data_2, 0, 0, 0);
 
+        cout << "id_out_a: fetch_pc = " << id_out_a.pc << ", r" << id_out_a.rs << " = " << id_out_a.read_data_1 << ", r" << id_out_a.rt << " = " << id_out_a.read_data_2 << "\n";
+        cout << "id_out_b: fetch_pc = " << id_out_b.pc << ", r" << id_out_b.rs << " = " << id_out_b.read_data_1 << ", r" << id_out_b.rt << " = " << id_out_b.read_data_2 << "\n";
         id_out_a.imm = id_out_a.zero_extend ? id_out_a.imm : (id_out_a.imm >> 15) ? 0xffff0000 | id_out_a.imm : id_out_a.imm;
         id_out_b.imm = id_out_b.zero_extend ? id_out_b.imm : (id_out_b.imm >> 15) ? 0xffff0000 | id_out_b.imm : id_out_b.imm;
     }
@@ -49,33 +51,34 @@ void SuperscalarProcessor::advance() {
             || (ex_in_b.mem_read && ( ex_in_b.rt == id_out_b.rs || (ex_in_b.rt == id_out_b.rt && id_out_b.reg_dest)))) {
             load_use_stall_b = true;
         }
+        load_use_stall = load_use_stall_a || load_use_stall_b;
 
         // Forwarding for pipeline A, first we check if we need to forward from the previous A's wb
         int reg_write = wb_in_a.reg_dest ? wb_in_a.rd : wb_in_a.rt;
         if(wb_in_a.reg_write) {
             auto read_data = wb_in_a.mem_to_reg ? wb_in_a.read_data_mem : wb_in_a.alu_result;
             if(reg_write == ex_in_a.rs) {ex_in_a.read_data_1 = read_data;}
-            else if(reg_write == ex_in_a.rt) {ex_in_a.read_data_2 = read_data;}
+            if(reg_write == ex_in_a.rt) {ex_in_a.read_data_2 = read_data;}
         }
         // Or if we need to do it from the previous B's wb, which is newer
         reg_write = wb_in_b.reg_dest ? wb_in_b.rd : wb_in_b.rt;
         if(wb_in_b.reg_write) {
             auto read_data = wb_in_b.mem_to_reg ? wb_in_b.read_data_mem : wb_in_b.alu_result;
             if(reg_write == ex_in_a.rs) {ex_in_a.read_data_1 = read_data;}
-            else if(reg_write == ex_in_a.rt) {ex_in_a.read_data_2 = read_data;}
+            if(reg_write == ex_in_a.rt) {ex_in_a.read_data_2 = read_data;}
         }
         // Then we do the same forwarding but for pipeline B,
         reg_write = wb_in_a.reg_dest ? wb_in_a.rd : wb_in_a.rt;
         if(wb_in_a.reg_write) {
             auto read_data = wb_in_a.mem_to_reg ? wb_in_a.read_data_mem : wb_in_a.alu_result;
             if(reg_write == ex_in_b.rs) {ex_in_b.read_data_1 = read_data;}
-            else if(reg_write == ex_in_b.rt) {ex_in_b.read_data_2 = read_data;}
+            if(reg_write == ex_in_b.rt) {ex_in_b.read_data_2 = read_data;}
         }
         reg_write = wb_in_b.reg_dest ? wb_in_b.rd : wb_in_b.rt;
         if(wb_in_b.reg_write) {
             auto read_data = wb_in_b.mem_to_reg ? wb_in_b.read_data_mem : wb_in_b.alu_result;
             if(reg_write == ex_in_b.rs) {ex_in_b.read_data_1 = read_data;}
-            else if(reg_write == ex_in_b.rt) {ex_in_b.read_data_2 = read_data;}
+            if(reg_write == ex_in_b.rt) {ex_in_b.read_data_2 = read_data;}
         }
 
 
@@ -83,23 +86,23 @@ void SuperscalarProcessor::advance() {
         reg_write = mem_in_a.reg_dest ? mem_in_a.rd : mem_in_a.rt;
         if(mem_in_a.reg_write) {
             if (reg_write == ex_in_a.rs) {ex_in_a.read_data_1 = mem_in_a.alu_result;}
-            else if (reg_write == ex_in_a.rt) {ex_in_a.read_data_2 = mem_in_a.alu_result;}
+            if (reg_write == ex_in_a.rt) {ex_in_a.read_data_2 = mem_in_a.alu_result;}
         }
         reg_write = mem_in_b.reg_dest ? mem_in_b.rd : mem_in_b.rt;
         if(mem_in_b.reg_write) {
             if (reg_write == ex_in_a.rs) {ex_in_a.read_data_1 = mem_in_b.alu_result;}
-            else if (reg_write == ex_in_a.rt) {ex_in_a.read_data_2 = mem_in_b.alu_result;}
+            if (reg_write == ex_in_a.rt) {ex_in_a.read_data_2 = mem_in_b.alu_result;}
         }
         // Forwarding for Pipeline B, from mem
         reg_write = mem_in_a.reg_dest ? mem_in_a.rd : mem_in_a.rt;
         if(mem_in_a.reg_write) {
             if (reg_write == ex_in_b.rs) {ex_in_b.read_data_1 = mem_in_a.alu_result;}
-            else if (reg_write == ex_in_b.rt) {ex_in_b.read_data_2 = mem_in_a.alu_result;}
+            if (reg_write == ex_in_b.rt) {ex_in_b.read_data_2 = mem_in_a.alu_result;}
         }
         reg_write = mem_in_b.reg_dest ? mem_in_b.rd : mem_in_b.rt;
         if(mem_in_b.reg_write) {
             if (reg_write == ex_in_b.rs) {ex_in_b.read_data_1 = mem_in_b.alu_result;}
-            else if (reg_write == ex_in_b.rt) {ex_in_b.read_data_2 = mem_in_b.alu_result;}
+            if (reg_write == ex_in_b.rt) {ex_in_b.read_data_2 = mem_in_b.alu_result;}
         }
 
         uint32_t alu_zero = 0;
@@ -114,6 +117,9 @@ void SuperscalarProcessor::advance() {
         uint32_t operand_2_b = ex_in_b.ALU_src ? ex_in_b.imm : ex_in_b.read_data_2;
         uint32_t alu_result_b = alu_b.execute(operand_1_b, operand_2_b, alu_zero);
         
+        cout << "alu_a: fetch_pc = " << ex_in_a.pc << ", opA = " << operand_1_a << ", opB = " << operand_2_a << ", result = " << alu_result_a << "\n";
+        cout << "alu_b: fetch_pc = " << ex_in_b.pc << ", opA = " << operand_1_b << ", opB = " << operand_2_b << ", result = " << alu_result_b << "\n";
+
         // // This is to work with the original code
         // if(ex_in.branch && ((ex_in.bne && !alu_zero) || (!ex_in.bne && alu_zero))) {
         //     dont_fetch = true;
@@ -127,84 +133,136 @@ void SuperscalarProcessor::advance() {
     }
     // Memory
     {
-        //Check if we have a branch misprediction
-        if(mem_in.branch && ((mem_in.bne && mem_in.alu_result) || (!mem_in.bne && !mem_in.alu_result))) {
-            branch_mispredict = true;
-            fetch_pc = mem_in.pc + 4 + (mem_in.imm << 2);
-            DEBUG(cout << "mem_in.pc == " << mem_in.pc << "\n";)
-        }
-        uint32_t read_data_mem = 0;
-        uint32_t write_data_mem = 0;
+        // TODO: handle superscalar mispredict
+        // if(mem_in.branch && ((mem_in.bne && mem_in.alu_result) || (!mem_in.bne && !mem_in.alu_result))) {
+        //     branch_mispredict = true;
+        //     fetch_pc = mem_in.pc + 4 + (mem_in.imm << 2);
+        // }
+
+        // If we have mem stall, we need to stall both pipelines, since we don't have reorder buffer
+
+        uint32_t read_data_mem_a = 0;
+        uint32_t write_data_mem_a = 0;
+        uint32_t read_data_mem_b = 0;
+        uint32_t write_data_mem_b = 0;
         // First read no matter whether it is a load or a store
-        bool mem_success = memory->access(mem_in.alu_result, read_data_mem, 0, 
-            mem_in.mem_read | mem_in.mem_write, 0);
+        bool mem_success_a = memory->access(mem_in_a.alu_result, read_data_mem_a, 0, 
+            mem_in_a.mem_read | mem_in_a.mem_write, 0);
 
-        if(mem_success) {
+        if(mem_success_a) {
             // Stores: sb or sh mask and preserve original leftmost bits
-            write_data_mem = mem_in.halfword ? (read_data_mem & 0xffff0000) | (mem_in.read_data_2 & 0xffff) : 
-                            mem_in.byte ? (read_data_mem & 0xffffff00) | (mem_in.read_data_2 & 0xff): mem_in.read_data_2;
+            write_data_mem_a = mem_in_a.halfword ? (read_data_mem_a & 0xffff0000) | (mem_in_a.read_data_2 & 0xffff) : 
+                            mem_in_a.byte ? (read_data_mem_a & 0xffffff00) | (mem_in_a.read_data_2 & 0xff): mem_in_a.read_data_2;
             // Write to memory only if mem_write is 1, i.e store
-            memory->access(mem_in.alu_result, read_data_mem, write_data_mem, 
-                mem_in.mem_read, mem_in.mem_write);
+            memory->access(mem_in_a.alu_result, read_data_mem_a, write_data_mem_a, 
+                mem_in_a.mem_read, mem_in_a.mem_write);
             // Loads: lbu or lhu modify read data by masking
-            read_data_mem &= mem_in.halfword ? 0xffff : mem_in.byte ? 0xff : 0xffffffff;
+            read_data_mem_a &= mem_in_a.halfword ? 0xffff : mem_in_a.byte ? 0xff : 0xffffffff;
 
-            mem_out.load_from(mem_in);
-            mem_out.read_data_mem = read_data_mem;
+            mem_out_a.load_from(mem_in_a);
+            mem_out_a.read_data_mem = read_data_mem_a;
+
+            bool mem_success_b = memory->access(mem_in_b.alu_result, read_data_mem_b, 0, 
+                mem_in_b.mem_read | mem_in_b.mem_write, 0);
+
+            if(mem_success_b) {
+                write_data_mem_b = mem_in_b.halfword ? (read_data_mem_b & 0xffff0000) | (mem_in_b.read_data_2 & 0xffff) : 
+                                mem_in_b.byte ? (read_data_mem_b & 0xffffff00) | (mem_in_b.read_data_2 & 0xff): mem_in_b.read_data_2; 
+                memory->access(mem_in_b.alu_result, read_data_mem_b, write_data_mem_b,
+                            mem_in_b.mem_read, mem_in_b.mem_write);
+
+                read_data_mem_b &= mem_in_b.halfword ? 0xffff : mem_in_b.byte ? 0xff : 0xffffffff;
+
+                mem_out_b.load_from(mem_in_b);
+                mem_out_b.read_data_mem = read_data_mem_b;
+            }
+            else {
+                mem_stall = true;
+            }
         } else {
             mem_stall = true;
-            DEBUG(cout << "mem_stalling\n";)
         }
     }
     // Instruction Fetch
     {   
         if(!mem_stall && !dont_fetch && !load_use_stall) {
-            DEBUG(cout << "Fetch_Pc is 0x" << std::hex << fetch_pc << std::dec << "\n";);
-            bool mem_success_1 = memory->access(fetch_pc, if_out.instruction, 0, 1, 0);
-            if(!mem_success) {
+            bool mem_success_a = memory->access(fetch_pc, if_out_a.instruction, 0, 1, 0);
+            if(!mem_success_a) {
                 if_stall = true;
             } else {
-                if_out.pc = fetch_pc;
+                bool mem_success_b = memory->access(fetch_pc + 4, if_out_b.instruction, 0, 1, 0);
+                if(!mem_success_b) {
+                    if_stall = true;
+                }
+                if_out_a.pc = fetch_pc;
+                if_out_b.pc = fetch_pc + 4;
             }
         } 
     }
     // Update Pipeline Registers and do stalling if needed
     {   
         if(branch_mispredict) {
-            DEBUG(cout << "Misprediction\n";)
-            ex_out.reset();
-            id_out.reset();
-            ex_out.pc = mem_in.pc;
-            id_out.pc = mem_in.pc;
+            id_out_a.reset();
+            id_out_b.reset();
+
+            ex_out_a.reset();
+            ex_out_b.reset();
+
+            ex_out_a.pc = mem_in_a.pc;
+            ex_out_b.pc = mem_in_b.pc;
+
+            id_out_a.pc = mem_in_a.pc;
+            id_out_b.pc = mem_in_b.pc;
         }
         if(mem_stall) {
-            DEBUG(cout << "mem stalling\n";)
             return;
         }
         if (load_use_stall) {
-            DEBUG(cout << "Stalling for use after mem read for ex_in.rt == " << ex_in.rt << " and id_out.rt == " << id_out.rt << "\n";)
-            id_out.reset();
-            ex_in = id_out;
-            mem_in = ex_out;
-            wb_in = mem_out;
+            id_out_a.reset();
+            id_out_b.reset();
+            
+            ex_in_a = id_out_a;
+            ex_in_b = id_out_b;
+            
+            mem_in_a = ex_out_a;
+            mem_in_b = ex_out_b;
+
+            wb_in_a = mem_out_a;
+            wb_in_b = mem_out_b;
         } else if (if_stall) {
-            DEBUG(cout << "IF Stalling\n";)
-            if_out.reset();
+            if_out_a.reset();
+            if_out_b.reset();
             if(branch_mispredict) {
-                if_out.pc = mem_in.pc;
+                if_out_a.pc = mem_in_a.pc;
+                if_out_b.pc = mem_in_b.pc;
             } else {
-                if_out.pc = id_in.pc;
+                if_out_a.pc = id_in_a.pc;
+                if_out_b.pc = id_in_b.pc;
             }
-            id_in = if_out;
-            ex_in = id_out;
-            mem_in = ex_out;
-            wb_in = mem_out;
+            id_in_a = if_out_a;
+            id_in_b = if_out_b;
+
+            ex_in_a = id_out_a;
+            ex_in_b = id_out_b;
+
+            mem_in_a = ex_out_a;
+            mem_in_b = ex_out_b;
+
+            wb_in_a = mem_out_a;
+            wb_in_b = mem_out_b;
         } else {
-            fetch_pc += 4;
-            id_in = if_out;
-            ex_in = id_out;
-            mem_in = ex_out;
-            wb_in = mem_out;
+            fetch_pc += 8;
+            id_in_a = if_out_a;
+            id_in_b = if_out_b;
+
+            ex_in_a = id_out_a;
+            ex_in_b = id_out_b;
+            
+            mem_in_a = ex_out_a;
+            mem_in_b = ex_out_b;
+
+            wb_in_a = mem_out_a;
+            wb_in_b = mem_out_b;            
         }
     }
 }
