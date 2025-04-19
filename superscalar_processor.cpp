@@ -10,6 +10,8 @@ void SuperscalarProcessor::advance() {
     bool load_use_stall_a = false;
     bool load_use_stall_b = false;
     bool load_use_stall = false;
+    bool dependent_stall = false;
+
     // We need to ensure that the older instr is always in pipeline_a
     // and the younger one is always in pipeline_b
 
@@ -43,11 +45,15 @@ void SuperscalarProcessor::advance() {
         cout << "id_out_b: fetch_pc = " << id_out_b.pc << ", r" << id_out_b.rs << " = " << id_out_b.read_data_1 << ", r" << id_out_b.rt << " = " << id_out_b.read_data_2 << "\n";
         id_out_a.imm = id_out_a.zero_extend ? id_out_a.imm : (id_out_a.imm >> 15) ? 0xffff0000 | id_out_a.imm : id_out_a.imm;
         id_out_b.imm = id_out_b.zero_extend ? id_out_b.imm : (id_out_b.imm >> 15) ? 0xffff0000 | id_out_b.imm : id_out_b.imm;
+
+        int reg_write = id_out_a.reg_dest ? id_out_a.rd : id_out_a.rt;
+        if(id_out_a.reg_write) {
+            if(reg_write == id_out_b.rs || reg_write == id_out_b.rt) { dependent_stall = true; }
+        }
     }
     // Execute
     {
-        // TODO: add check to see if pipeline B depends on pipeline A, if so stall the pipeline, checking id_out
-        // Both pipeline B and A should repeat their fetches, and pipeline B should repeat its decode
+
         if((ex_in_a.mem_read && ( ex_in_a.rt == id_out_a.rs || (ex_in_a.rt == id_out_a.rt && id_out_a.reg_dest)))
             || (ex_in_b.mem_read && ( ex_in_b.rt == id_out_a.rs || (ex_in_b.rt == id_out_a.rt && id_out_a.reg_dest)))) {
             load_use_stall_a = true;
@@ -199,7 +205,7 @@ void SuperscalarProcessor::advance() {
     }
     // Instruction Fetch
     {   
-        if(!mem_stall && !dont_fetch && !load_use_stall) {
+        if(!mem_stall && !dont_fetch && !load_use_stall && !dependent_stall) {
             bool mem_success_a = memory->access(fetch_pc, if_out_a.instruction, 0, 1, 0);
             if(!mem_success_a) {
                 if_stall = true;
@@ -248,6 +254,10 @@ void SuperscalarProcessor::advance() {
 
             wb_in_a = mem_out_a;
             wb_in_b = mem_out_b;
+        } else if (dependent_stall) {
+            if_out_a.reset(); // TODO: finish handling dependent stall
+            if_out_b.reset();
+            id_out_b.reset(); // TODO: check replacing this with just not updating ex_in
         } else if (if_stall) {
             cout << "IF stalling\n";
             if_out_a.reset();
