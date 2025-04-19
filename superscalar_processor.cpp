@@ -20,6 +20,9 @@ void SuperscalarProcessor::advance() {
         int write_reg_b = wb_in_b.link ? 31 : wb_in_b.reg_dest ? wb_in_b.rd : wb_in_b.rt;
         uint32_t write_data_b = wb_in_b.link ? regfile.pc + 8 : wb_in_b.mem_to_reg ? wb_in_b.read_data_mem : wb_in_b.alu_result;  
 
+        cout << "wb_a fetch_pc = " << wb_in_a.pc << ", r" << write_reg_a << " = " << write_data_a << "\n";
+        cout << "wb_b fetch_pc = " << wb_in_b.pc << ", r" << write_reg_b << " = " << write_data_b << "\n";
+
         // Write Back
         regfile.access(0, 0, wb_in_a.read_data_2, wb_in_a.read_data_2, write_reg_a, wb_in_a.reg_write, write_data_a);
         regfile.access(0, 0, wb_in_b.read_data_2, wb_in_b.read_data_2, write_reg_b, wb_in_b.reg_write, write_data_b);
@@ -43,6 +46,8 @@ void SuperscalarProcessor::advance() {
     }
     // Execute
     {
+        // TODO: add check to see if pipeline B depends on pipeline A, if so stall the pipeline, checking id_out
+        // Both pipeline B and A should repeat their fetches, and pipeline B should repeat its decode
         if((ex_in_a.mem_read && ( ex_in_a.rt == id_out_a.rs || (ex_in_a.rt == id_out_a.rt && id_out_a.reg_dest)))
             || (ex_in_b.mem_read && ( ex_in_b.rt == id_out_a.rs || (ex_in_b.rt == id_out_a.rt && id_out_a.reg_dest)))) {
             load_use_stall_a = true;
@@ -149,6 +154,9 @@ void SuperscalarProcessor::advance() {
         bool mem_success_a = memory->access(mem_in_a.alu_result, read_data_mem_a, 0, 
             mem_in_a.mem_read | mem_in_a.mem_write, 0);
 
+        cout << "mem_a fetch_pc = " << mem_in_a.pc << ", addr = " << mem_in_a.alu_result << "\n"; 
+        cout << "mem_b fetch_pc = " << mem_in_b.pc << ", addr = " << mem_in_b.alu_result << "\n"; 
+        
         if(mem_success_a) {
             // Stores: sb or sh mask and preserve original leftmost bits
             write_data_mem_a = mem_in_a.halfword ? (read_data_mem_a & 0xffff0000) | (mem_in_a.read_data_2 & 0xffff) : 
@@ -158,12 +166,13 @@ void SuperscalarProcessor::advance() {
                 mem_in_a.mem_read, mem_in_a.mem_write);
             // Loads: lbu or lhu modify read data by masking
             read_data_mem_a &= mem_in_a.halfword ? 0xffff : mem_in_a.byte ? 0xff : 0xffffffff;
+            
 
-            mem_out_a.load_from(mem_in_a);
-            mem_out_a.read_data_mem = read_data_mem_a;
 
             bool mem_success_b = memory->access(mem_in_b.alu_result, read_data_mem_b, 0, 
                 mem_in_b.mem_read | mem_in_b.mem_write, 0);
+            
+            cout << "mem_a read " << read_data_mem_a << "\n";
 
             if(mem_success_b) {
                 write_data_mem_b = mem_in_b.halfword ? (read_data_mem_b & 0xffff0000) | (mem_in_b.read_data_2 & 0xffff) : 
@@ -172,6 +181,11 @@ void SuperscalarProcessor::advance() {
                             mem_in_b.mem_read, mem_in_b.mem_write);
 
                 read_data_mem_b &= mem_in_b.halfword ? 0xffff : mem_in_b.byte ? 0xff : 0xffffffff;
+
+                cout << "mem_b read " << read_data_mem_b << "\n";
+                
+                mem_out_a.load_from(mem_in_a);
+                mem_out_a.read_data_mem = read_data_mem_a;
 
                 mem_out_b.load_from(mem_in_b);
                 mem_out_b.read_data_mem = read_data_mem_b;
@@ -194,8 +208,11 @@ void SuperscalarProcessor::advance() {
                 if(!mem_success_b) {
                     if_stall = true;
                 }
+
                 if_out_a.pc = fetch_pc;
                 if_out_b.pc = fetch_pc + 4;
+                cout << "if_out_a fetch_pc = " << fetch_pc << "\n";
+                cout << "if_out_b fetch_pc = " << fetch_pc + 4 << "\n";
             }
         } 
     }
@@ -215,9 +232,11 @@ void SuperscalarProcessor::advance() {
             id_out_b.pc = mem_in_b.pc;
         }
         if(mem_stall) {
+            cout << "mem stalling\n";
             return;
         }
         if (load_use_stall) {
+            cout << "load use stalling\n";
             id_out_a.reset();
             id_out_b.reset();
             
@@ -230,6 +249,7 @@ void SuperscalarProcessor::advance() {
             wb_in_a = mem_out_a;
             wb_in_b = mem_out_b;
         } else if (if_stall) {
+            cout << "IF stalling\n";
             if_out_a.reset();
             if_out_b.reset();
             if(branch_mispredict) {
