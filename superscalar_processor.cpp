@@ -55,12 +55,12 @@ void SuperscalarProcessor::advance() {
     // Execute
     {
 
-        if((ex_in_a.mem_read && ( ex_in_a.rt == id_out_a.rs || (ex_in_a.rt == id_out_a.rt && id_out_a.reg_dest)))
-            || (ex_in_b.mem_read && ( ex_in_b.rt == id_out_a.rs || (ex_in_b.rt == id_out_a.rt && id_out_a.reg_dest)))) {
+        if((ex_in_a.mem_read && ( ex_in_a.rt == id_out_a.rs || (ex_in_a.rt == id_out_a.rt && !id_out_a.reg_dest)))
+            || (ex_in_b.mem_read && ( ex_in_b.rt == id_out_a.rs || (ex_in_b.rt == id_out_a.rt && !id_out_a.reg_dest)))) {
             load_use_stall_a = true;
         } // Are we using a register that one of the previous instruction pairs is loading into?
-        if((ex_in_a.mem_read && ( ex_in_a.rt == id_out_b.rs || (ex_in_a.rt == id_out_b.rt && id_out_b.reg_dest)))
-            || (ex_in_b.mem_read && ( ex_in_b.rt == id_out_b.rs || (ex_in_b.rt == id_out_b.rt && id_out_b.reg_dest)))) {
+        if((ex_in_a.mem_read && ( ex_in_a.rt == id_out_b.rs || (ex_in_a.rt == id_out_b.rt && !id_out_b.reg_dest)))
+            || (ex_in_b.mem_read && ( ex_in_b.rt == id_out_b.rs || (ex_in_b.rt == id_out_b.rt && !id_out_b.reg_dest)))) {
             load_use_stall_b = true;
         }
         load_use_stall = load_use_stall_a || load_use_stall_b;

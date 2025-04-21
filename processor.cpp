@@ -154,7 +154,10 @@ void Processor::pipelined_processor_advance() {
     }
     // Execute
     {
-        if(ex_in.mem_read && ( (ex_in.rt == id_out.rs) || ((ex_in.rt == id_out.rt) && id_out.reg_dest)) ) {
+        cout << "ex_in fetch_pc = "<< ex_in.pc << " mem_read = " << ex_in.mem_read << " rt = " << ex_in.rt <<  "\n";
+        cout << "id_out fetch_pc = "<< id_out.pc << " rs = " << id_out.rs << " rt = " << id_out.rt << "\n";
+        if(ex_in.mem_read && ((ex_in.rt == id_out.rs) || ((ex_in.rt == id_out.rt && !id_out.reg_dest))) ) {
+            cout << "load use stalling\n";
             load_use_stall = true;
         }
 

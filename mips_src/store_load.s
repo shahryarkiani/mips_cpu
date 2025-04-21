@@ -5,9 +5,10 @@
 	.ent	__start
 	.type	__start, @function
 __start:
-   addi $1, $0, 77 # r1 = 77 
-   sw $1, 0($0) # mem[0] = r1 == 77
-   lw $10, 0($0) # r10 = mem[0] == 77
-   nop
+   addi $1, $0, 1 # r1 = 1 
+   sw $1, 0($0) # mem[0] = 1
+   lw $10, 0($0) # r10 = 1
+   sw $10, 4($0) # mem[4] = 1
+   lw $2, 4($0) # r2 = 1
 	.end	__start
 	.size	__start, .-__start
