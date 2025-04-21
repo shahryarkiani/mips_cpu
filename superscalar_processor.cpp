@@ -218,7 +218,7 @@ void SuperscalarProcessor::advance() {
     }
     // Instruction Fetch
     {   
-        if(!mem_stall && !dont_fetch && !load_use_stall && !dependent_stall) {
+        if(!mem_stall && !dont_fetch && !load_use_stall && (!dependent_stall || (dependent_stall && (branch_mispredict_a || branch_mispredict_b)))) {
             bool mem_success_a = memory->access(fetch_pc, if_out_a.instruction, 0, 1, 0);
             if(!mem_success_a) {
                 if_stall = true;
@@ -281,7 +281,7 @@ void SuperscalarProcessor::advance() {
 
             wb_in_a = mem_out_a;
             wb_in_b = mem_out_b;
-        } else if (dependent_stall) {
+        } else if (dependent_stall && (!branch_mispredict_a && !branch_mispredict_b)) {
             cout << "dependent stalling\n";
             // At this point, the instruction in the output of the decode stage, are conflicting
             // the next two instructions are loaded in the fetch stages
