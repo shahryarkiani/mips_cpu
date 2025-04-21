@@ -49,7 +49,6 @@ void SuperscalarProcessor::advance() {
 
         int reg_write = id_out_a.reg_dest ? id_out_a.rd : id_out_a.rt;
         if(id_out_a.reg_write && reg_write != 0) {
-            cout << id_out_a.reg_write << " = reg_write_a\n";
             if(reg_write == id_out_b.rs || reg_write == id_out_b.rt) { dependent_stall = true; }
         }
     }
@@ -152,6 +151,8 @@ void SuperscalarProcessor::advance() {
         // If it's detected in pipeline B, we just need to flush out F D E for both
         // For both cases, update the PC accordingly
         // Special case: If a branch misprediction happens in both pipeline A + B, we want the PC from A, not B 
+        // Special case: Dependent stalls interact weirdly with branch misprediction, if there's been a misprediction
+        // We don't want to dependent stall, because those instructions are being thrown out anyways
         if(mem_in_b.branch && ((mem_in_b.bne && mem_in_b.alu_result) || (!mem_in_b.bne && !mem_in_b.alu_result))) {
             branch_mispredict_b = true;
             fetch_pc = mem_in_b.pc + 4 + (mem_in_b.imm << 2);
