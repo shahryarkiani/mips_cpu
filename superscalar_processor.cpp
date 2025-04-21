@@ -5,7 +5,8 @@ void SuperscalarProcessor::advance() {
     
     bool if_stall = false;
     bool mem_stall = false;
-    bool branch_mispredict = false;
+    bool branch_mispredict_a = false;
+    bool branch_mispredict_b = false;
     bool dont_fetch = false;
     bool load_use_stall_a = false;
     bool load_use_stall_b = false;
@@ -146,10 +147,20 @@ void SuperscalarProcessor::advance() {
     // Memory
     {
         // TODO: handle superscalar mispredict
-        // if(mem_in.branch && ((mem_in.bne && mem_in.alu_result) || (!mem_in.bne && !mem_in.alu_result))) {
-        //     branch_mispredict = true;
-        //     fetch_pc = mem_in.pc + 4 + (mem_in.imm << 2);
-        // }
+        // If detect branch misprediction in pipeline A, we've got to flush out B's mem, and also flush out 
+        // the F D E parts of both pipeline A and B
+        // If it's detected in pipeline B, we just need to flush out F D E for both
+        // For both cases, update the PC accordingly
+        // Special case: If a branch misprediction happens in both pipeline A + B, we want the PC from A, not B 
+        if(mem_in_b.branch && ((mem_in_b.bne && mem_in_b.alu_result) || (!mem_in_b.bne && !mem_in_b.alu_result))) {
+            branch_mispredict_b = true;
+            fetch_pc = mem_in_b.pc + 4 + (mem_in_b.imm << 2);
+        }
+
+        if(mem_in_a.branch && ((mem_in_a.bne && mem_in_a.alu_result) || (!mem_in_a.bne && !mem_in_a.alu_result))) {
+            branch_mispredict_a = true;
+            fetch_pc = mem_in_a.pc + 4 + (mem_in_a.imm << 2); 
+        }
 
         // If we have mem stall, we need to stall both pipelines, since we don't have reorder buffer
 
@@ -225,7 +236,21 @@ void SuperscalarProcessor::advance() {
     }
     // Update Pipeline Registers and do stalling if needed
     {   
-        if(branch_mispredict) {
+        if (branch_mispredict_a) {
+            id_out_a.reset();
+            id_out_b.reset();
+
+            ex_out_a.reset();
+            ex_out_b.reset();
+
+            mem_out_b.reset();
+
+            ex_out_a.pc = mem_in_a.pc;
+            ex_out_b.pc = mem_in_b.pc;
+
+            id_out_a.pc = mem_in_a.pc;
+            id_out_b.pc = mem_in_b.pc;
+        } else if (branch_mispredict_b) {
             id_out_a.reset();
             id_out_b.reset();
 
@@ -238,7 +263,7 @@ void SuperscalarProcessor::advance() {
             id_out_a.pc = mem_in_a.pc;
             id_out_b.pc = mem_in_b.pc;
         }
-        if(mem_stall) {
+        if (mem_stall) {
             cout << "mem stalling\n";
             return;
         }
@@ -277,7 +302,7 @@ void SuperscalarProcessor::advance() {
             cout << "IF stalling\n";
             if_out_a.reset();
             if_out_b.reset();
-            if(branch_mispredict) {
+            if(branch_mispredict_a || branch_mispredict_b) {
                 if_out_a.pc = mem_in_a.pc;
                 if_out_b.pc = mem_in_b.pc;
             } else {
