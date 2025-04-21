@@ -138,9 +138,10 @@ void Processor::pipelined_processor_advance() {
     // Writeback
     {
         int write_reg = wb_in.link ? 31 : wb_in.reg_dest ? wb_in.rd : wb_in.rt;
-
+        
         uint32_t write_data = wb_in.link ? regfile.pc + 8 : wb_in.mem_to_reg ? wb_in.read_data_mem : wb_in.alu_result;  
     
+        cout << "wb fetch_pc = " << wb_in.pc << ", r" << write_reg << " = " << write_data << "\n";
         // Write Back
         regfile.access(0, 0, wb_in.read_data_2, wb_in.read_data_2, write_reg, wb_in.reg_write, write_data);
         regfile.pc = wb_in.pc;
@@ -150,13 +151,12 @@ void Processor::pipelined_processor_advance() {
         id_out.load(id_in.instruction);
         id_out.pc = id_in.pc;
         regfile.access(id_out.rs, id_out.rt, id_out.read_data_1, id_out.read_data_2, 0, 0, 0);
+        cout << "id_out: fetch_pc = " << id_out.pc << ", r" << id_out.rs << " = " << id_out.read_data_1 << ", r" << id_out.rt << " = " << id_out.read_data_2 << "\n";
         id_out.imm = id_out.zero_extend ? id_out.imm : (id_out.imm >> 15) ? 0xffff0000 | id_out.imm : id_out.imm;
     }
     // Execute
     {
-        cout << "ex_in fetch_pc = "<< ex_in.pc << " mem_read = " << ex_in.mem_read << " rt = " << ex_in.rt <<  "\n";
-        cout << "id_out fetch_pc = "<< id_out.pc << " rs = " << id_out.rs << " rt = " << id_out.rt << "\n";
-        if(ex_in.mem_read && ((ex_in.rt == id_out.rs) || ((ex_in.rt == id_out.rt && !id_out.reg_dest))) ) {
+        if(ex_in.mem_read && ((ex_in.rt == id_out.rs) || ((ex_in.rt == id_out.rt && id_out.reg_dest))) ) {
             cout << "load use stalling\n";
             load_use_stall = true;
         }
@@ -189,6 +189,9 @@ void Processor::pipelined_processor_advance() {
             dont_fetch = true;
         }
 
+        cout << "alu: fetch_pc = " << ex_in.pc << ", opA = " << operand_1 << ", opB = " << operand_2 << ", result = " << alu_result << "\n";
+
+
         ex_out.load_from(ex_in);
         ex_out.alu_result = alu_result;
     }
@@ -207,6 +210,10 @@ void Processor::pipelined_processor_advance() {
         bool mem_success = memory->access(mem_in.alu_result, read_data_mem, 0, 
             mem_in.mem_read | mem_in.mem_write, 0);
 
+        cout << "mem fetch_pc = " << mem_in.pc << ", addr = " << mem_in.alu_result << "\n"; 
+
+
+
         if(mem_success) {
             // Stores: sb or sh mask and preserve original leftmost bits
             write_data_mem = mem_in.halfword ? (read_data_mem & 0xffff0000) | (mem_in.read_data_2 & 0xffff) : 
@@ -216,6 +223,9 @@ void Processor::pipelined_processor_advance() {
                 mem_in.mem_read, mem_in.mem_write);
             // Loads: lbu or lhu modify read data by masking
             read_data_mem &= mem_in.halfword ? 0xffff : mem_in.byte ? 0xff : 0xffffffff;
+
+            cout << "mem read " << read_data_mem << "\n";
+
 
             mem_out.load_from(mem_in);
             mem_out.read_data_mem = read_data_mem;
@@ -227,7 +237,7 @@ void Processor::pipelined_processor_advance() {
     // Instruction Fetch
     {   
         if(!mem_stall && !dont_fetch && !load_use_stall) {
-            DEBUG(cout << "Fetch_Pc is 0x" << std::hex << fetch_pc << std::dec << "\n";);
+            cout << "if_out fetch_pc = " << fetch_pc << "\n";
             bool mem_success = memory->access(fetch_pc, if_out.instruction, 0, 1, 0);
             if(!mem_success) {
                 if_stall = true;
