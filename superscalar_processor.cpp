@@ -47,7 +47,8 @@ void SuperscalarProcessor::advance() {
         id_out_b.imm = id_out_b.zero_extend ? id_out_b.imm : (id_out_b.imm >> 15) ? 0xffff0000 | id_out_b.imm : id_out_b.imm;
 
         int reg_write = id_out_a.reg_dest ? id_out_a.rd : id_out_a.rt;
-        if(id_out_a.reg_write) {
+        if(id_out_a.reg_write && reg_write != 0) {
+            cout << id_out_a.reg_write << " = reg_write_a\n";
             if(reg_write == id_out_b.rs || reg_write == id_out_b.rt) { dependent_stall = true; }
         }
     }
@@ -255,9 +256,23 @@ void SuperscalarProcessor::advance() {
             wb_in_a = mem_out_a;
             wb_in_b = mem_out_b;
         } else if (dependent_stall) {
+            cout << "dependent stalling\n";
+            // At this point, the instruction in the output of the decode stage, are conflicting
+            // the next two instructions are loaded in the fetch stages
+            
             if_out_a.reset(); // TODO: finish handling dependent stall
             if_out_b.reset();
             id_out_b.reset(); // TODO: check replacing this with just not updating ex_in
+
+            id_in_a = if_out_a;
+            ex_in_a = id_out_a;
+            ex_in_b = id_out_b;
+
+            mem_in_a = ex_out_a;
+            mem_in_b = ex_out_b;
+
+            wb_in_a = mem_out_a;
+            wb_in_b = mem_out_b;
         } else if (if_stall) {
             cout << "IF stalling\n";
             if_out_a.reset();
