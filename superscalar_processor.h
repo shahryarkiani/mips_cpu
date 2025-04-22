@@ -5,6 +5,8 @@
 #include "ALU.h"
 #include "control.h"
 #include "pipeline.h"
+#include <cstdint>
+#include <deque>
 
 class SuperscalarProcessor {
     private:
@@ -15,6 +17,8 @@ class SuperscalarProcessor {
         Memory *memory;
         Registers &regfile;
         uint32_t fetch_pc;
+
+        deque<uint32_t> recent_fetchs;
 
         // A flag to keep track of whether the instructions in pipeline B
         // are after the corresponding ones in B(aka in-order)

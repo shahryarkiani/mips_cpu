@@ -19,9 +19,12 @@ void SuperscalarProcessor::advance() {
     bool load_use_stall_b = false;
     bool load_use_stall = false;
     bool dependent_stall = false;
+    bool mem_fetch_conflict_a = false;
+    bool mem_fetch_conflict_b = false;
 
     // We need to ensure that the older instr is always in pipeline_a
-    // and the younger one is always in pipeline_b
+    // and the younger one is always in pipeline_b, 
+    // like the instruction in A's decode should be older than B's decode, and so on for the other stages
 
     // Writeback
     {
@@ -54,21 +57,24 @@ void SuperscalarProcessor::advance() {
         id_out_a.imm = id_out_a.zero_extend ? id_out_a.imm : (id_out_a.imm >> 15) ? 0xffff0000 | id_out_a.imm : id_out_a.imm;
         id_out_b.imm = id_out_b.zero_extend ? id_out_b.imm : (id_out_b.imm >> 15) ? 0xffff0000 | id_out_b.imm : id_out_b.imm;
 
+        // Detect if these two instructions cannot be ran in parallel
         int reg_write = id_out_a.reg_dest ? id_out_a.rd : id_out_a.rt;
         if(id_out_a.reg_write && reg_write != 0) {
-            if(reg_write == id_out_b.rs || reg_write == id_out_b.rt) { dependent_stall = true; }
+            if(reg_write == id_out_b.rs || reg_write == id_out_b.rt) { 
+                dependent_stall = true; 
+            }
         }
     }
     // Execute
     {
-
+        
         if((ex_in_a.mem_read && ( ex_in_a.rt == id_out_a.rs || (ex_in_a.rt == id_out_a.rt)))
             || (ex_in_b.mem_read && ( ex_in_b.rt == id_out_a.rs || (ex_in_b.rt == id_out_a.rt)))) {
-            load_use_stall_a = true;
+                load_use_stall_a = true;
         } // Are we using a register that one of the previous instruction pairs is loading into?
         if((ex_in_a.mem_read && ( ex_in_a.rt == id_out_b.rs || (ex_in_a.rt == id_out_b.rt)))
             || (ex_in_b.mem_read && ( ex_in_b.rt == id_out_b.rs || (ex_in_b.rt == id_out_b.rt)))) {
-            load_use_stall_b = true;
+                load_use_stall_b = true;
         }
         load_use_stall = load_use_stall_a || load_use_stall_b;
 
@@ -163,11 +169,13 @@ void SuperscalarProcessor::advance() {
         // We don't want to dependent stall, because those instructions are being thrown out anyways
         if(mem_in_b.branch && ((mem_in_b.bne && mem_in_b.alu_result) || (!mem_in_b.bne && !mem_in_b.alu_result))) {
             branch_mispredict_b = true;
+            dependent_stall = false;
             fetch_pc = mem_in_b.pc + 4 + (mem_in_b.imm << 2);
         }
 
         if(mem_in_a.branch && ((mem_in_a.bne && mem_in_a.alu_result) || (!mem_in_a.bne && !mem_in_a.alu_result))) {
             branch_mispredict_a = true;
+            dependent_stall = false;
             fetch_pc = mem_in_a.pc + 4 + (mem_in_a.imm << 2); 
         }
 
@@ -195,7 +203,6 @@ void SuperscalarProcessor::advance() {
             read_data_mem_a &= mem_in_a.halfword ? 0xffff : mem_in_a.byte ? 0xff : 0xffffffff;
             
 
-
             bool mem_success_b = memory->access(mem_in_b.alu_result, read_data_mem_b, 0, 
                 mem_in_b.mem_read | mem_in_b.mem_write, 0);
             
@@ -211,6 +218,18 @@ void SuperscalarProcessor::advance() {
 
                 DEBUG(cout << "mem_b read " << read_data_mem_b << "\n";)
                 
+
+                uint32_t a_addr = mem_in_a.alu_result & ~0x3;
+                uint32_t b_addr = mem_in_b.alu_result & ~0x3;
+                for(auto& fetch_addr : recent_fetchs) {
+                    if(mem_in_a.mem_write && a_addr == fetch_addr) {
+                        mem_fetch_conflict_a = true;
+                    } else if (mem_in_b.mem_write && b_addr == fetch_addr) {
+                        if(mem_in_b.pc != b_addr)
+                            mem_fetch_conflict_b = true;
+                    } 
+                }
+
                 mem_out_a.load_from(mem_in_a);
                 mem_out_a.read_data_mem = read_data_mem_a;
 
@@ -226,7 +245,8 @@ void SuperscalarProcessor::advance() {
     }
     // Instruction Fetch
     {   
-        if(!mem_stall && !dont_fetch && !load_use_stall && (!dependent_stall || (dependent_stall && (branch_mispredict_a || branch_mispredict_b)))) {
+        if(!mem_stall && !dont_fetch && !load_use_stall && !(mem_fetch_conflict_a || mem_fetch_conflict_b)) {
+
             bool mem_success_a = memory->access(fetch_pc, if_out_a.instruction, 0, 1, 0);
             if(!mem_success_a) {
                 if_stall = true;
@@ -238,6 +258,12 @@ void SuperscalarProcessor::advance() {
 
                 if_out_a.pc = fetch_pc;
                 if_out_b.pc = fetch_pc + 4;
+                
+                recent_fetchs.push_back(fetch_pc + 4);
+                recent_fetchs.push_back(fetch_pc);
+                while(recent_fetchs.size() > 7) {
+                    recent_fetchs.pop_front();
+                }
                 DEBUG(cout << "if_out_a fetch_pc = " << fetch_pc << "\n";)
                 DEBUG(cout << "if_out_b fetch_pc = " << fetch_pc + 4 << "\n";)
             }
@@ -276,7 +302,59 @@ void SuperscalarProcessor::advance() {
             DEBUG(cout << "mem stalling\n";)
             return;
         }
-        if (load_use_stall) {
+        if (mem_fetch_conflict_a) {
+            DEBUG(cout << "mem fetch a stalling \n";)
+            recent_fetchs.clear();
+
+            fetch_pc = mem_in_a.pc + 4;
+            if_out_a.reset();
+            if_out_b.reset();
+
+            id_in_a = if_out_a;
+            id_in_b = if_out_b;
+
+            id_out_a.reset();
+            id_out_b.reset();
+
+            ex_in_a = id_out_a;
+            ex_in_b = id_out_b;
+
+            ex_out_a.reset();
+            ex_out_b.reset();
+
+            mem_out_b.reset();
+
+            mem_in_a = ex_out_a;
+            mem_in_b = ex_out_b;
+
+            wb_in_a = mem_out_a;
+            wb_in_b = mem_out_b;
+        } else if (mem_fetch_conflict_b) {
+            DEBUG(cout << "mem fetch b stalling \n";)
+            recent_fetchs.clear();
+
+            fetch_pc = mem_in_b.pc + 4;
+            if_out_a.reset();
+            if_out_b.reset();
+
+            id_in_a = if_out_a;
+            id_in_b = if_out_b;
+
+            id_out_a.reset();
+            id_out_b.reset();
+
+            ex_in_a = id_out_a;
+            ex_in_b = id_out_b;
+
+            ex_out_a.reset();
+            ex_out_b.reset();
+
+            mem_in_a = ex_out_a;
+            mem_in_b = ex_out_b;
+
+            wb_in_a = mem_out_a;
+            wb_in_b = mem_out_b;
+        } else if (load_use_stall) {
             DEBUG(cout << "load use stalling\n";)
             id_out_a.reset();
             id_out_b.reset();
@@ -289,17 +367,33 @@ void SuperscalarProcessor::advance() {
 
             wb_in_a = mem_out_a;
             wb_in_b = mem_out_b;
-        } else if (dependent_stall && (!branch_mispredict_a && !branch_mispredict_b)) {
+        } else if (dependent_stall) {
             DEBUG(cout << "dependent stalling\n";)
-            // At this point, the instruction in the output of the decode stage, are conflicting
-            // the next two instructions are loaded in the fetch stages
-            
-            if_out_a.reset(); // TODO: finish handling dependent stall
-            if_out_b.reset();
-            id_out_b.reset(); // TODO: check replacing this with just not updating ex_in
+            if(if_stall) {
+                if_out_a.reset();
+                if_out_b.reset();
+                id_in_a = id_in_b;
+                id_in_b = if_out_b;
 
-            id_in_a = if_out_a;
+                ex_in_a = id_out_a;
+                id_out_b.reset();
+                ex_in_b = id_out_b;
+
+                mem_in_a = ex_out_a;
+                mem_in_b = ex_out_b;
+
+                wb_in_a = mem_out_a;
+                wb_in_b = mem_out_b;
+                return;
+            }
+
+            fetch_pc += 4;
+
+            id_in_a = id_in_b;
+            id_in_b = if_out_a;
+
             ex_in_a = id_out_a;
+            id_out_b.reset();
             ex_in_b = id_out_b;
 
             mem_in_a = ex_out_a;
