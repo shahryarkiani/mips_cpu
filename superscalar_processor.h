@@ -3,7 +3,6 @@
 #include "memory.h"
 #include "regfile.h"
 #include "ALU.h"
-#include "control.h"
 #include "pipeline.h"
 #include <cstdint>
 #include <deque>
@@ -13,7 +12,6 @@ class SuperscalarProcessor {
         int opt_level;
         ALU alu_a;
         ALU alu_b;
-        control_t control;
         Memory *memory;
         Registers &regfile;
         uint32_t fetch_pc;
