@@ -259,6 +259,9 @@ void SuperscalarProcessor::advance() {
                 if_out_a.pc = fetch_pc;
                 if_out_b.pc = fetch_pc + 4;
                 
+
+                // Keep track of the recent fetched instructions
+                // To detect conflicts between stores and fetches
                 recent_fetchs.push_back(fetch_pc + 4);
                 recent_fetchs.push_back(fetch_pc);
                 while(recent_fetchs.size() > 7) {
@@ -271,69 +274,37 @@ void SuperscalarProcessor::advance() {
     }
     // Update Pipeline Registers and do stalling if needed
     {   
-        if (branch_mispredict_a) {
+        if (branch_mispredict_a || branch_mispredict_b) {
             id_out_a.reset();
             id_out_b.reset();
 
             ex_out_a.reset();
             ex_out_b.reset();
 
-            mem_out_b.reset();
+            if(branch_mispredict_a) {
+                mem_out_b.reset();
+            }
 
             ex_out_a.pc = mem_in_a.pc;
             ex_out_b.pc = mem_in_b.pc;
 
             id_out_a.pc = mem_in_a.pc;
             id_out_b.pc = mem_in_b.pc;
-        } else if (branch_mispredict_b) {
-            id_out_a.reset();
-            id_out_b.reset();
-
-            ex_out_a.reset();
-            ex_out_b.reset();
-
-            ex_out_a.pc = mem_in_a.pc;
-            ex_out_b.pc = mem_in_b.pc;
-
-            id_out_a.pc = mem_in_a.pc;
-            id_out_b.pc = mem_in_b.pc;
-        }
+        } 
         if (mem_stall) {
             DEBUG(cout << "mem stalling\n";)
             return;
         }
-        if (mem_fetch_conflict_a) {
-            DEBUG(cout << "mem fetch a stalling \n";)
+
+        if(mem_fetch_conflict_a || mem_fetch_conflict_b) {
             recent_fetchs.clear();
+            if(mem_fetch_conflict_a) {
+                fetch_pc = mem_in_a.pc + 4;
+                mem_out_b.reset();
+            } else {
+                fetch_pc = mem_in_b.pc + 4;
+            }
 
-            fetch_pc = mem_in_a.pc + 4;
-            if_out_a.reset();
-            if_out_b.reset();
-
-            id_in_a = if_out_a;
-            id_in_b = if_out_b;
-
-            id_out_a.reset();
-            id_out_b.reset();
-
-            ex_in_a = id_out_a;
-            ex_in_b = id_out_b;
-
-            ex_out_a.reset();
-            ex_out_b.reset();
-
-            mem_out_b.reset();
-
-            mem_in_a = ex_out_a;
-            mem_in_b = ex_out_b;
-
-            wb_in_a = mem_out_a;
-            wb_in_b = mem_out_b;
-        } else if (mem_fetch_conflict_b) {
-            DEBUG(cout << "mem fetch b stalling \n";)
-            recent_fetchs.clear();
-
-            fetch_pc = mem_in_b.pc + 4;
             if_out_a.reset();
             if_out_b.reset();
 
@@ -372,22 +343,9 @@ void SuperscalarProcessor::advance() {
             if(if_stall) {
                 if_out_a.reset();
                 if_out_b.reset();
-                id_in_a = id_in_b;
-                id_in_b = if_out_b;
-
-                ex_in_a = id_out_a;
-                id_out_b.reset();
-                ex_in_b = id_out_b;
-
-                mem_in_a = ex_out_a;
-                mem_in_b = ex_out_b;
-
-                wb_in_a = mem_out_a;
-                wb_in_b = mem_out_b;
-                return;
+            } else {
+                fetch_pc += 4;
             }
-
-            fetch_pc += 4;
 
             id_in_a = id_in_b;
             id_in_b = if_out_a;
@@ -401,30 +359,14 @@ void SuperscalarProcessor::advance() {
 
             wb_in_a = mem_out_a;
             wb_in_b = mem_out_b;
-        } else if (if_stall) {
-            DEBUG(cout << "IF stalling\n";)
-            if_out_a.reset();
-            if_out_b.reset();
-            if(branch_mispredict_a || branch_mispredict_b) {
-                if_out_a.pc = mem_in_a.pc;
-                if_out_b.pc = mem_in_b.pc;
-            } else {
-                if_out_a.pc = id_in_a.pc;
-                if_out_b.pc = id_in_b.pc;
-            }
-            id_in_a = if_out_a;
-            id_in_b = if_out_b;
-
-            ex_in_a = id_out_a;
-            ex_in_b = id_out_b;
-
-            mem_in_a = ex_out_a;
-            mem_in_b = ex_out_b;
-
-            wb_in_a = mem_out_a;
-            wb_in_b = mem_out_b;
         } else {
-            fetch_pc += 8;
+            if(if_stall) {
+                DEBUG(cout << "IF Stalling\n";)
+                if_out_a.reset();
+                if_out_b.reset();
+            } else {
+                fetch_pc += 8;
+            }
             id_in_a = if_out_a;
             id_in_b = if_out_b;
 
