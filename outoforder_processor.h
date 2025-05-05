@@ -18,14 +18,23 @@ typedef id_ex_buffer_t decoded_instr;
 
 struct reorder_entry {
     uint32_t pc;
-    uint8_t dest_reg;
-    bool mem_write;
+    uint8_t dst_reg;
+    uint8_t src_reg;
+    bool reg_write;
+    bool issued;
     decoded_instr instruction;
 };
 
+struct reservation_entry {
+    decoded_instr instruction;
+    bool r1_ready;
+    bool r2_ready;
+};
+
 struct reg_mapping {
-    uint8_t reg_num;
-    uint8_t phys_reg;
+    uint8_t arch_reg; // from
+    uint8_t phys_reg; // to
+    uint8_t read_count;
     bool ready;
 };
 
@@ -33,8 +42,7 @@ struct reg_mapping {
 class OutOfOrderProcessor {
     private:
         int opt_level;
-        ALU alu_a;
-        ALU alu_b;
+        ALU alu;
         control_t control;
         Memory *memory;
         // Visible architectural registers
@@ -51,20 +59,39 @@ class OutOfOrderProcessor {
         std::deque<reorder_entry> reorder_buffer;
 
         // We keep a single shared reservation station
-        std::vector<uint32_t> reservation_station;
+        std::deque<reservation_entry> reservation_station;
 
+        uint8_t execute_dst_reg = 32;
+        uint8_t execute_result = 0;
+
+        uint8_t mem_dst_reg = 32;
+        uint8_t mem_result = 0;
+
+        decoded_instr exec_in;
+        decoded_instr mem_in;
 
         const size_t reorder_buffer_capacity = 16;
         const size_t reservation_station_capacity = 8;
         const size_t map_table_capacity = 32;
+
+        bool is_reg_ready(uint8_t phys_reg) {
+            for(auto& map_entry : map_table) {
+                if(map_entry.phys_reg == phys_reg) {
+                    return map_entry.ready;
+                }
+            }
+
+            return false;
+        }
+
     public:
-        OutOfOrderProcessor(Memory *mem, Registers& other_regfile) : retirement_regfile()(other_regfile) {
+        OutOfOrderProcessor(Memory *mem, Registers& other_regfile) : retirement_regfile(other_regfile) {
             regfile.pc = 0;
             fetch_pc = 0;
             memory = mem; 
 
             for(uint8_t i = 0; i < 32; i++) {
-                free_list.add(i);
+                free_list.push_back(i + 32);
             }
         }
 
