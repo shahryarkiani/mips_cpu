@@ -5,6 +5,7 @@
 #include "ALU.h"
 #include "control.h"
 #include "pipeline.h"
+#include "superscalar_bp_processor.h"
 #include "superscalar_processor.h"
 #include "outoforder_processor.h"
 #include <memory>
@@ -16,6 +17,7 @@ class Processor {
         Memory *memory;
         Registers regfile;
         unique_ptr<SuperscalarProcessor> superscalar_processor;
+        unique_ptr<SuperscalarBpProcessor> superscalar_bp_processor;
         unique_ptr<OutOfOrderProcessor> outoforder_processor;
         uint32_t fetch_pc;
 

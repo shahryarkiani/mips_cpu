@@ -161,7 +161,7 @@ void OutOfOrderProcessor::advance() {
             // we take the the first unissued instruction and try to move it to execute directly
             // if that's not possible, we put it in the reservation station
             if(!reorder_buffer.empty()) {
-                auto first = reorder_buffer.front();
+                // auto first = reorder_buffer.front();
                 
             }
 
@@ -200,6 +200,8 @@ void OutOfOrderProcessor::advance() {
                 reservation_station.erase(it);
                 issue_memory_out = ready_entry.instruction;
             }
+        
+            // in parallel, we would also move an unissued instruction into the reservation stations if possible
         }
 
     }
@@ -216,7 +218,7 @@ void OutOfOrderProcessor::advance() {
 
         execute_dst_reg_out = exec_in.reg_dest == 1 ? exec_in.rd : exec_in.rt;
         execute_result_out = alu_result;
-        DEBUG(cout << "exec fetch_pc: " << exec_in.pc << << ", dst: " execute_dst_reg_out << ", rs: " exec_in.rs << "\n");
+        DEBUG(cout << "exec fetch_pc: " << exec_in.pc << ", dst: " << execute_dst_reg_out << ", rs: " << exec_in.rs << "\n");
 
 
         // Single Mem Unit

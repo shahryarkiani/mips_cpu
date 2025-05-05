@@ -7,6 +7,7 @@
 #include "outoforder_processor.h"
 #include "pipeline.h"
 #include "regfile.h"
+#include "superscalar_bp_processor.h"
 #include "superscalar_processor.h"
 using namespace std;
 
@@ -40,7 +41,7 @@ void Processor::initialize(int level) {
     if(opt_level == 2) {
         superscalar_processor = unique_ptr<SuperscalarProcessor>(new SuperscalarProcessor(memory, regfile));
     } else if(opt_level == 3) {
-        outoforder_processor = unique_ptr<OutOfOrderProcessor>(new OutOfOrderProcessor(memory, regfile));
+        superscalar_bp_processor = unique_ptr<SuperscalarBpProcessor>(new SuperscalarBpProcessor(memory, regfile));
     }
 }
 
@@ -53,7 +54,7 @@ void Processor::advance() {
         case 2: superscalar_processor_advance();
                 break;
         // other optimization levels go here
-        case 3: outoforder_processor->advance(); 
+        case 3: superscalar_bp_processor->advance(); 
                 break;
         default: break;
     }

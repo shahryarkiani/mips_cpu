@@ -91,6 +91,8 @@ class OutOfOrderProcessor {
             memory = mem; 
 
             for(uint8_t i = 0; i < 32; i++) {
+                // physical registers are from 32 to 63
+                // makes it easy to detect which regfile we should be accessing
                 free_list.push_back(i + 32);
             }
         }
