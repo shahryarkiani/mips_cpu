@@ -1,5 +1,6 @@
 #ifndef _SUPERSCALAR_BRANCH_H
 #define _SUPERSCALAR_BRANCH_H
+#include "branch_predictor.h"
 #include "memory.h"
 #include "regfile.h"
 #include "ALU.h"
@@ -15,6 +16,8 @@ class SuperscalarBpProcessor {
         Memory *memory;
         Registers &regfile;
         uint32_t fetch_pc;
+
+        BranchPredictor predictor = BranchPredictor();
 
         deque<uint32_t> recent_fetchs;
 

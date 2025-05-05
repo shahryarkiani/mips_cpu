@@ -8,9 +8,11 @@ using namespace std;
 struct if_id_buffer_t {
     uint32_t instruction;
     uint32_t pc;
+    bool taken;
     void reset() {
         instruction = 0;
         pc = 0;
+        taken = false;
     }
 };
 
@@ -32,6 +34,7 @@ struct id_ex_buffer_t {
     bool reg_write;          // 1 if need to write back to reg file
     bool zero_extend;        // 1 if immediate needs to be zero-extended
 
+    bool taken;
 
     // information about instruction stored in this stage
     int opcode;
@@ -47,6 +50,7 @@ struct id_ex_buffer_t {
     uint32_t read_data_2;
 
     void reset() {
+        taken = false;
         pc = 0;
         reg_dest = 0;         
         jump = 0;             
@@ -193,6 +197,8 @@ struct ex_mem_buffer_t {
     bool byte;               // 1 if loading/storing a byte from memory
     bool reg_write;          // 1 if need to write back to reg file
 
+    bool taken;
+
     // information about instruction stored in this stage
     int opcode;
     int rs;
@@ -206,6 +212,7 @@ struct ex_mem_buffer_t {
     uint32_t alu_result;
 
     void reset() {
+        taken = false;
         pc = 0;
         reg_dest = 0;         
         jump = 0;             
@@ -231,6 +238,7 @@ struct ex_mem_buffer_t {
     }    
 
     void load_from(const id_ex_buffer_t& id_ex_buffer) {
+        taken = id_ex_buffer.taken;
         reg_dest = id_ex_buffer.reg_dest;
         jump = id_ex_buffer.jump;
         jump_reg = id_ex_buffer.jump_reg;

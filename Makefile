@@ -6,7 +6,7 @@ ASM = mipsel-linux-gnu-gcc
 
 
 EXE_NAME=processor
-SRCS := main.cpp memory.cpp processor.cpp superscalar_processor.cpp outoforder_processor.cpp superscalar_bp_processor.cpp
+SRCS := main.cpp memory.cpp processor.cpp superscalar_processor.cpp outoforder_processor.cpp superscalar_bp_processor.cpp 
 OBJS := $(SRCS:.cpp=.o)
 ASM_SRCS := $(wildcard mips_src/*.s)
 ASM_OBJS := $(ASM_SRCS:mips_src/%.s=mips_bin/%)
@@ -18,7 +18,7 @@ all: $(EXE_NAME) asm_obj_dir $(ASM_OBJS)
 $(EXE_NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) -o $@ $^
 
-processor.o: regfile.h ALU.h control.h processor.h pipeline.h superscalar_processor.o outoforder_processor.o superscalar_bp_processor.o
+processor.o: regfile.h ALU.h control.h processor.h pipeline.h superscalar_processor.o outoforder_processor.o superscalar_bp_processor.o branch_predictor.h
 memory.o: memory.h
 main.o: memory.h processor.h
 

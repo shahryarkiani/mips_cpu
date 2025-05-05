@@ -37,6 +37,7 @@ void Processor::initialize(int level) {
                .zero_extend = 0};
    
     opt_level = level;
+
     // Optimization level-specific initialization
     if(opt_level == 2) {
         superscalar_processor = unique_ptr<SuperscalarProcessor>(new SuperscalarProcessor(memory, regfile));

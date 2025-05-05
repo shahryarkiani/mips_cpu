@@ -22,6 +22,10 @@ void SuperscalarBpProcessor::advance() {
     bool mem_fetch_conflict_a = false;
     bool mem_fetch_conflict_b = false;
 
+    bool branch_predicted_a = false;
+    bool branch_predicted_b = false;
+    uint32_t branch_target_a = 0;
+    uint32_t branch_target_b = 0;
     // We need to ensure that the older instr is always in pipeline_a
     // and the younger one is always in pipeline_b, 
     // like the instruction in A's decode should be older than B's decode, and so on for the other stages
@@ -48,6 +52,9 @@ void SuperscalarBpProcessor::advance() {
         
         id_out_a.pc = id_in_a.pc;
         id_out_b.pc = id_in_b.pc;
+
+        id_out_a.taken = id_in_a.taken;
+        id_out_b.taken = id_in_b.taken;
 
         regfile.access(id_out_a.rs, id_out_a.rt, id_out_a.read_data_1, id_out_a.read_data_2, 0, 0, 0);
         regfile.access(id_out_b.rs, id_out_b.rt, id_out_b.read_data_1, id_out_b.read_data_2, 0, 0, 0);
@@ -167,16 +174,38 @@ void SuperscalarBpProcessor::advance() {
         // Special case: If a branch misprediction happens in both pipeline A + B, we want the PC from A, not B 
         // Special case: Dependent stalls interact weirdly with branch misprediction, if there's been a misprediction
         // We don't want to dependent stall, because those instructions are being thrown out anyways
-        if(mem_in_b.branch && ((mem_in_b.bne && mem_in_b.alu_result) || (!mem_in_b.bne && !mem_in_b.alu_result))) {
-            branch_mispredict_b = true;
-            dependent_stall = false;
-            fetch_pc = mem_in_b.pc + 4 + (mem_in_b.imm << 2);
+        if(mem_in_b.branch) {
+            bool actual_taken = ((mem_in_b.bne && mem_in_b.alu_result) || (!mem_in_b.bne && !mem_in_b.alu_result));
+            if(actual_taken != mem_in_b.taken) {
+                branch_mispredict_b = true;
+                dependent_stall = false;
+                if(actual_taken) {
+                    fetch_pc = mem_in_b.pc + 4 + (mem_in_b.imm << 2); 
+                } else {
+                    fetch_pc = mem_in_b.pc + 4;
+                }
+                DEBUG(cout << "mem_in_b was wrong should have gone to " << fetch_pc << "\n");
+            }
+            DEBUG(cout << "updating branch predictor for mem_in_b\n");
+            uint32_t target = mem_in_b.pc + 4 + (mem_in_b.imm << 2); 
+            predictor.recordBranch(mem_in_b.pc, target, actual_taken, mem_in_b.taken);
         }
 
-        if(mem_in_a.branch && ((mem_in_a.bne && mem_in_a.alu_result) || (!mem_in_a.bne && !mem_in_a.alu_result))) {
-            branch_mispredict_a = true;
-            dependent_stall = false;
-            fetch_pc = mem_in_a.pc + 4 + (mem_in_a.imm << 2); 
+        if(mem_in_a.branch) {
+            bool actual_taken = ((mem_in_a.bne && mem_in_a.alu_result) || (!mem_in_a.bne && !mem_in_a.alu_result)); 
+            if(actual_taken != mem_in_a.taken) {
+                branch_mispredict_a = true;
+                dependent_stall = false;
+                if(actual_taken) {
+                    fetch_pc = mem_in_a.pc + 4 + (mem_in_a.imm << 2);
+                } else {
+                    fetch_pc = mem_in_a.pc + 4;
+                }
+                DEBUG(cout << "mem_in_a was wrong should have gone to " << fetch_pc << "\n");
+            }  
+            DEBUG(cout << "updating branch predictor for mem_in_a\n");
+            uint32_t target = mem_in_a.pc + 4 + (mem_in_a.imm << 2); 
+            predictor.recordBranch(mem_in_a.pc, target, actual_taken, mem_in_a.taken);
         }
 
         // If we have mem stall, we need to stall both pipelines, since we don't have reorder buffer
@@ -258,7 +287,17 @@ void SuperscalarBpProcessor::advance() {
 
                 if_out_a.pc = fetch_pc;
                 if_out_b.pc = fetch_pc + 4;
-                
+
+                // Check if either the fetched instructions have a branch prediction
+                branch_predicted_a = predictor.makePrediction(if_out_a.pc);
+                branch_predicted_b = predictor.makePrediction(if_out_b.pc);
+
+                if(branch_predicted_a) {
+                    branch_target_a = predictor.getTarget(if_out_a.pc);
+                }
+                if(branch_predicted_b) {
+                    branch_target_b = predictor.getTarget(if_out_b.pc);
+                }
 
                 // Keep track of the recent fetched instructions
                 // To detect conflicts between stores and fetches
@@ -365,7 +404,21 @@ void SuperscalarBpProcessor::advance() {
                 if_out_a.reset();
                 if_out_b.reset();
             } else {
-                fetch_pc += 8;
+                if(branch_predicted_a) {
+                    // a has a positive branch prediction, so we want to discard B
+                    if_out_b.reset();
+                    if_out_a.taken = true;
+                    fetch_pc = branch_target_a;
+                    DEBUG(cout << "fetch_pc_a predicted taken to " << branch_target_a << "\n");
+                } else if (branch_predicted_b && !branch_predicted_a) {
+                    // only b has a positive prediction
+                    if_out_a.reset();
+                    if_out_b.taken = true;
+                    fetch_pc = branch_target_b;
+                    DEBUG(cout << "fetch_pc_b predicted taken to" << branch_target_b << "\n");
+                } else {
+                    fetch_pc += 8;
+                }
             }
             id_in_a = if_out_a;
             id_in_b = if_out_b;

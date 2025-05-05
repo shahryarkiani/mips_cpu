@@ -7,14 +7,18 @@
 __start:
   addi $1, $0, 2
   add $2, $0, $0
-loop1:
-  andi $3, $1, 1
-  beq $3, $0, skipif
-  # nop, secret
-  addi $2, $2, 1
 skipif:
   addi $1, $1, -1
-  bne $1, $0, loop1
+  addi $2, $2, 7
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  nop
+  bne $1, $0, skipif
+  addi $3, $3, 412
   .end	__start
   .size	__start, .-__start
 
