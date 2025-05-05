@@ -67,8 +67,8 @@ class OutOfOrderProcessor {
         uint8_t mem_dst_reg = 32;
         uint8_t mem_result = 0;
 
-        decoded_instr exec_in;
-        decoded_instr mem_in;
+        decoded_instr exec_in{};
+        decoded_instr mem_in{};
 
         const size_t reorder_buffer_capacity = 16;
         const size_t reservation_station_capacity = 8;

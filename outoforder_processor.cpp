@@ -14,31 +14,32 @@
 void OutOfOrderProcessor::advance() {
     /*
     * TODO
-    * Fetch 2 instructions at a time into instruction queue
+    * Fetch 1 instructions at a time into instruction queue
     * Decode + Rename Instructions
     * Issue Instructions
     * Execute Instructions / Do Mem Operations
-    * Commit
+    * Commit and Writeback
     */
     
     // Fetch stage will write to these variables
-    uint32_t fetch_pc_out;
-    instruction instruction_out;
+    uint32_t fetch_pc_out = 0;
+    instruction instruction_out{};
     bool if_stall = false;
 
     // Decode stage will write to these
-    reorder_entry rob_entry_out;
+    reorder_entry rob_entry_out{};
     bool id_stall = false;
 
     // Issue stage will write to these
     decoded_instr issue_execute_out;
+    issue_execute_out.reset();
     decoded_instr issue_memory_out;
-
+    issue_memory_out.reset();
     // Exec/Mem stage will write to these
-    uint8_t execute_dst_reg_out = 0;
+    uint8_t execute_dst_reg_out = 32;
     uint8_t execute_result_out = 0;
 
-    uint8_t mem_dst_reg_out = 0;
+    uint8_t mem_dst_reg_out = 32;
     uint8_t mem_result_out = 0;
     bool mem_stall = false;
     { // Fetch
@@ -68,6 +69,7 @@ void OutOfOrderProcessor::advance() {
         decoded_instr decoded;
         
         decoded.load(fetched_instruction.instruction);
+        decoded.pc = fetched_instruction.pc;
         decoded.imm = decoded.zero_extend ? decoded.imm : (decoded.imm >> 15) ? 0xffff0000 | decoded.imm : decoded.imm;
         
         reorder_entry rob_entry;
@@ -123,7 +125,10 @@ void OutOfOrderProcessor::advance() {
         assert(execute_dst_reg >= 32);
         assert(mem_dst_reg >= 32);
 
+        uint32_t _unused;
 
+        regfile.access(0, 0, _unused, _unused, execute_dst_reg, true, execute_result);
+        regfile.access(0, 0, _unused, _unused, mem_dst_reg, true, mem_result);
     }
 
     { // Issue, move instruction from reorder buffer to reservation station
@@ -155,6 +160,11 @@ void OutOfOrderProcessor::advance() {
         if(reservation_station.empty()) { // if the reservation station is empty
             // we take the the first unissued instruction and try to move it to execute directly
             // if that's not possible, we put it in the reservation station
+            if(!reorder_buffer.empty()) {
+                auto first = reorder_buffer.front();
+                
+            }
+
         } else {
             // if there's already instructions in the reservation stations, we see if we can move one of them to the execute stage and one of them to the mem stage
             
@@ -198,19 +208,23 @@ void OutOfOrderProcessor::advance() {
         // Single Execute Unit
         uint32_t alu_zero = 0;
 
+
         alu.generate_control_inputs(exec_in.ALU_op, exec_in.funct, exec_in.opcode);
         uint32_t operand_1 = exec_in.shift ? exec_in.shamt : exec_in.read_data_1;
         uint32_t operand_2 = exec_in.ALU_src ? exec_in.imm : exec_in.read_data_2;
         uint32_t alu_result = alu.execute(operand_1, operand_2, alu_zero);
 
-        execute_dst_reg_out = exec_in.reg_write == 1 ? exec_in.rd : exec_in.rt;
+        execute_dst_reg_out = exec_in.reg_dest == 1 ? exec_in.rd : exec_in.rt;
         execute_result_out = alu_result;
+        DEBUG(cout << "exec fetch_pc: " << exec_in.pc << << ", dst: " execute_dst_reg_out << ", rs: " exec_in.rs << "\n");
+
 
         // Single Mem Unit
         uint32_t read_data_mem = 0;
         uint32_t write_data_mem = 0;
         // First read no matter whether it is a load or a store
 
+        // This is always the same operation, so it should be able to be ran in the same cycle as the rest of mem
         uint32_t mem_alu_result = mem_in.rs + mem_in.imm; 
 
         bool mem_success = memory->access(mem_alu_result, read_data_mem, 0, 
@@ -229,8 +243,13 @@ void OutOfOrderProcessor::advance() {
 
             cout << "mem read " << read_data_mem << "\n";
 
-            mem_dst_reg_out = mem_in.reg_write == 1 ? mem_in.rd : mem_in.rt;
-            mem_result_out = read_data_mem;
+            if(!mem_in.mem_read) {
+                mem_dst_reg_out = 32;
+                mem_result_out = 0;
+            } else {
+                mem_dst_reg_out = mem_in.reg_dest == 1 ? mem_in.rd : mem_in.rt;
+                mem_result_out = read_data_mem;   
+            }
         } else {
             mem_stall = true;
             DEBUG(cout << "mem_stalling\n";)
@@ -243,7 +262,7 @@ void OutOfOrderProcessor::advance() {
         if(!reorder_buffer.empty()) {
             auto first_it = reorder_buffer.begin();
             reorder_entry first = *first_it;
-            uint32_t _unused_read; // also need to check phys regfile for ready registers
+            uint32_t _unused_read; // also need to check phys regfile for ready registers, to see if we can commit
             if(first.src_reg == execute_dst_reg) {
                 retirement_regfile.access(0, 0, _unused_read, _unused_read, first.dst_reg, first.reg_write, execute_result);
                 retirement_regfile.pc = first.pc;
@@ -262,10 +281,29 @@ void OutOfOrderProcessor::advance() {
         // Move values from output of each stage to input of next
 
         // fetched to decode
-
-        // decoded to reorder buffer
-
+        if(!if_stall && !id_stall) {
+            fetch_pc = fetch_pc_out;
+            fetched_instruction = instruction_out;
+        } else if(!id_stall) {
+            fetched_instruction.instruction = 0;
+            fetched_instruction.pc = 0;
+            fetch_pc = fetch_pc_out;
+        } else if (id_stall) {
+            reorder_buffer.push_back(rob_entry_out);
+            assert(reorder_buffer.size() <= reorder_buffer_capacity);            
+        }
         // issue to exec/mem
+
+
+
+        //exec/mem to out's
+        execute_dst_reg = execute_dst_reg_out == 0 ? 32 : execute_dst_reg_out;
+        execute_result = execute_result_out;
+
+        if(!mem_stall) {
+            mem_dst_reg = mem_dst_reg_out == 0 ? 32 : mem_dst_reg_out;
+            mem_result = mem_result_out;
+        }
     }
 
     return;

@@ -4,6 +4,7 @@
 #include <memory>
 #include "processor.h"
 #include "control.h"
+#include "outoforder_processor.h"
 #include "pipeline.h"
 #include "regfile.h"
 #include "superscalar_processor.h"
@@ -38,6 +39,8 @@ void Processor::initialize(int level) {
     // Optimization level-specific initialization
     if(opt_level == 2) {
         superscalar_processor = unique_ptr<SuperscalarProcessor>(new SuperscalarProcessor(memory, regfile));
+    } else if(opt_level == 3) {
+        outoforder_processor = unique_ptr<OutOfOrderProcessor>(new OutOfOrderProcessor(memory, regfile));
     }
 }
 
@@ -50,6 +53,8 @@ void Processor::advance() {
         case 2: superscalar_processor_advance();
                 break;
         // other optimization levels go here
+        case 3: outoforder_processor->advance(); 
+                break;
         default: break;
     }
 }
