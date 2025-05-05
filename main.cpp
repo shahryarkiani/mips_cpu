@@ -14,6 +14,13 @@
 
 using namespace std;
 
+
+#ifdef ENABLE_DEBUG
+#define DEBUG(x) x
+#else
+#define DEBUG(x) 
+#endif 
+
 extern void single_cycle_main_loop(Registers &reg_file, Memory &memory, uint32_t end_pc);
 extern void pipelined_main_loop(Registers &reg_file, Memory &memory, uint32_t end_pc, int width);
 extern void processor_main_loop(Registers &reg_file, Memory &memory, uint32_t end_pc, int width);
@@ -137,10 +144,13 @@ int main(int argc, char *argv[]) {
     uint64_t num_cycles = 0;
     while (processor.getPC() <= end_pc) {
         processor.advance();
-        cout << "\nCYCLE " << num_cycles << "\n";
-        processor.printRegFile();
+        DEBUG(cout << "\nCYCLE " << num_cycles << "\n";)
+        DEBUG(cout << "regfile.pc: " << processor.getPC() << "\n";)
+        DEBUG(processor.printRegFile();)
         num_cycles++;
     }
 
+    cout << "\nCYCLE " << num_cycles << "\n";
+    processor.printRegFile();
     cout << "\nCompleted execution in " << (double)num_cycles*(optLevel ? 1 : 125)*0.5 << " nanoseconds.\n";
 }

@@ -159,7 +159,7 @@ void SuperscalarBpProcessor::advance() {
         // }
 
         ex_out_a.load_from(ex_in_a);
-        ex_out_a.alu_result = alu_result_a;
+        ex_out_a.alu_result = alu_result_a; 
         
         ex_out_b.load_from(ex_in_b);
         ex_out_b.alu_result = alu_result_b;
@@ -293,11 +293,9 @@ void SuperscalarBpProcessor::advance() {
                 branch_predicted_b = predictor.makePrediction(if_out_b.pc);
 
                 if(branch_predicted_a) {
-                    cout << "got a hit for if_out_a\n";
                     branch_target_a = predictor.getTarget(if_out_a.pc);
                 }
                 if(branch_predicted_b) {
-                    cout << "got a hit for if_out_b\n";
                     branch_target_b = predictor.getTarget(if_out_b.pc);
                 }
 
