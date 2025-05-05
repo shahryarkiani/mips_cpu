@@ -5,7 +5,7 @@
     .ent    __start
     .type    __start, @function
 __start:
-    addi    $5, $0, 10
+    addi    $5, $0, 2
     
 outer_loop:
     addi    $1, $0, 0x7F8

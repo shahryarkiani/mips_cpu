@@ -39,9 +39,9 @@ void Processor::initialize(int level) {
     opt_level = level;
 
     // Optimization level-specific initialization
-    if(opt_level == 2) {
+    if(opt_level == 3) {
         superscalar_processor = unique_ptr<SuperscalarProcessor>(new SuperscalarProcessor(memory, regfile));
-    } else if(opt_level == 3) {
+    } else if(opt_level == 2) {
         superscalar_bp_processor = unique_ptr<SuperscalarBpProcessor>(new SuperscalarBpProcessor(memory, regfile));
     }
 }
@@ -52,10 +52,10 @@ void Processor::advance() {
                 break;
         case 1: pipelined_processor_advance();
                 break;
-        case 2: superscalar_processor_advance();
+        case 3: superscalar_processor_advance();
                 break;
         // other optimization levels go here
-        case 3: superscalar_bp_processor->advance(); 
+        case 2: superscalar_bp_processor->advance(); 
                 break;
         default: break;
     }

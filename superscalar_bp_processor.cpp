@@ -293,9 +293,11 @@ void SuperscalarBpProcessor::advance() {
                 branch_predicted_b = predictor.makePrediction(if_out_b.pc);
 
                 if(branch_predicted_a) {
+                    cout << "got a hit for if_out_a\n";
                     branch_target_a = predictor.getTarget(if_out_a.pc);
                 }
                 if(branch_predicted_b) {
+                    cout << "got a hit for if_out_b\n";
                     branch_target_b = predictor.getTarget(if_out_b.pc);
                 }
 
@@ -382,7 +384,7 @@ void SuperscalarBpProcessor::advance() {
             if(if_stall) {
                 if_out_a.reset();
                 if_out_b.reset();
-            } else {
+            } else { // issue, this causes the fetch pc to be updated,
                 fetch_pc += 4;
             }
 
