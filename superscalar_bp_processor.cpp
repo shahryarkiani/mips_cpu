@@ -411,8 +411,7 @@ void SuperscalarBpProcessor::advance() {
                     fetch_pc = branch_target_a;
                     DEBUG(cout << "fetch_pc_a predicted taken to " << branch_target_a << "\n");
                 } else if (branch_predicted_b && !branch_predicted_a) {
-                    // only b has a positive prediction
-                    if_out_a.reset();
+                    // only b has a positive prediction, we don't discard A
                     if_out_b.taken = true;
                     fetch_pc = branch_target_b;
                     DEBUG(cout << "fetch_pc_b predicted taken to" << branch_target_b << "\n");
