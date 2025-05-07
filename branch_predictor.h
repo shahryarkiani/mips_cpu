@@ -19,7 +19,7 @@ class BranchPredictor{
     private:
 
     uint32_t hash(uint32_t value) {
-        return ((value >> 2) ^ (value >> 10) ^ (value >> 18) ^ (value >> 26)) & 0b111111;
+        return ((value >> 2)) & 0b111111;
     }
 
 

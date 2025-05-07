@@ -182,6 +182,7 @@ void SuperscalarBpProcessor::advance() {
             if(actual_taken != mem_in_b.taken) {
                 branch_mispredict_b = true;
                 dependent_stall = false;
+                load_use_stall = false;
                 if(actual_taken) {
                     fetch_pc = mem_in_b.pc + 4 + (mem_in_b.imm << 2); 
                 } else {
@@ -199,6 +200,7 @@ void SuperscalarBpProcessor::advance() {
             if(actual_taken != mem_in_a.taken) {
                 branch_mispredict_a = true;
                 dependent_stall = false;
+                load_use_stall = false;
                 if(actual_taken) {
                     fetch_pc = mem_in_a.pc + 4 + (mem_in_a.imm << 2);
                 } else {
@@ -290,6 +292,10 @@ void SuperscalarBpProcessor::advance() {
 
                 if_out_a.pc = fetch_pc;
                 if_out_b.pc = fetch_pc + 4;
+
+                if_out_a.taken = false;
+                if_out_b.taken = false;                
+
 
                 // Check if either the fetched instructions have a branch prediction
                 int sum_a = predictor.makePrediction(if_out_a.pc);
