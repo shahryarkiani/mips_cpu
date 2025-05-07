@@ -1,5 +1,6 @@
 #ifndef _BRANCH_PREDICTOR_H
 #define _BRANCH_PREDICTOR_H
+#include <bitset>
 #include <cassert>
 #include <cstdint>
 #include <cstdlib>
@@ -10,49 +11,54 @@
 struct perceptron_table_entry {
   uint32_t pc;
   uint32_t target;
+  int8_t bias_weight;
   int8_t weights[HISTORY_LENGTH];  
 };
 
 class BranchPredictor{
     private:
-    std::deque<bool> history;
+
+    uint32_t hash(uint32_t value) {
+        return ((value >> 2) ^ (value >> 10) ^ (value >> 18) ^ (value >> 26)) & 0b111111;
+    }
+
+
+    std::bitset<HISTORY_LENGTH> history;
 
     perceptron_table_entry perceptrons_table[64];
 
     public:
     BranchPredictor() {
-        for(int i = 0; i < HISTORY_LENGTH; i++) {
-            history.push_back(false);
-        }
+        history.reset();
 
         for(int i = 0; i < 64; i++) {
             perceptrons_table[i] = {};
             perceptrons_table[i].pc = UINT32_MAX;
-            perceptrons_table[i].weights[0] = 1;
+            perceptrons_table[i].target = UINT32_MAX;
+            perceptrons_table[i].bias_weight = 1;
         }
     }
 
-    bool makePrediction(uint32_t pc) {
-        uint8_t hash = ((pc >> 2) ^ (pc >> 10) ^ (pc >> 18) ^ (pc >> 26)) & 0b111111;
-
+    int makePrediction(uint32_t pc) {
+        uint8_t hash = BranchPredictor::hash(pc);
 
         const auto perceptron = perceptrons_table[hash];
 
         if(perceptron.pc != pc) {
-            return false;
+            return -1;
         }
 
-        int sum = perceptron.weights[0];
+        int sum = perceptron.bias_weight;
 
-        for(int i = 1; i < HISTORY_LENGTH; i++) {
-            sum += perceptron.weights[i] * (history[i - 1] ? 1 : -1);
+        for(int i = 0; i < HISTORY_LENGTH; i++) {
+            sum += perceptron.weights[i] * (history[i] ? 1 : -1);
         }
         
-        return sum >= 0;
+        return sum;
     }
 
     uint32_t getTarget(uint32_t pc) {
-        uint8_t hash = ((pc >> 2) ^ (pc >> 10) ^ (pc >> 18) ^ (pc >> 26)) & 0b111111;
+        uint8_t hash = BranchPredictor::hash(pc);
 
         const auto perceptron = perceptrons_table[hash];
 
@@ -61,8 +67,8 @@ class BranchPredictor{
         return perceptron.target;
     }
     
-    void recordBranch(uint32_t pc, uint32_t target, bool actual, bool predicted) {
-        uint8_t hash = ((pc >> 2) ^ (pc >> 10) ^ (pc >> 18) ^ (pc >> 26)) & 0b111111;
+    void recordBranch(uint32_t pc, uint32_t target, bool actual, bool predicted, int perceptron_sum) {
+        uint8_t hash = BranchPredictor::hash(pc);
     
         auto& perceptron = perceptrons_table[hash];
 
@@ -70,38 +76,34 @@ class BranchPredictor{
             perceptron.pc = pc;
             perceptron.target = target;
 
-            perceptron.weights[0] = 1;
-            for(int i = 1; i < HISTORY_LENGTH; i++) {
+            // reset weights for new pc
+            perceptron.bias_weight = 1;
+            for(int i = 0; i < HISTORY_LENGTH; i++) {
                 perceptron.weights[i] = 0;
             }
         }
 
         
-        int sum = perceptron.weights[0];
-
-        for(int i = 1; i < HISTORY_LENGTH; i++) {
-            sum += perceptron.weights[i] * (history[i - 1] ? 1 : -1);
-        }
-
-        if(actual != predicted || abs(sum) <= THRESHOLD) {
-            if(actual && perceptron.weights[0] != INT8_MAX) {
-                perceptron.weights[0]++;
-            } else if(perceptron.weights[0] != INT8_MIN) {
-                perceptron.weights[0]--;
+        if(actual != predicted || abs(perceptron_sum) <= THRESHOLD) {
+             
+            if(actual && perceptron.bias_weight != INT8_MAX) {
+                perceptron.bias_weight++;
+            } else if(perceptron.bias_weight != INT8_MIN) {
+                perceptron.bias_weight--;
             }
 
 
-            for(int i = 1; i < HISTORY_LENGTH; i++) {
-                if(actual == history[i - 1] && perceptron.weights[i] != INT8_MAX) {
+            for(int i = 0; i < HISTORY_LENGTH; i++) {
+                if(actual == history[i] && perceptron.weights[i] != INT8_MAX) {
                     perceptron.weights[i]++;
-                } else if (actual != history[i - 1] && perceptron.weights[i] != INT8_MIN) {
+                } else if (perceptron.weights[i] != INT8_MIN) {
                     perceptron.weights[i]--;
                 }
             }
         }
 
-        history.push_front(actual);
-        history.pop_back();
+        history = history << 1;
+        history.set(0, actual);
     }
 };
 

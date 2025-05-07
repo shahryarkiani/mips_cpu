@@ -9,9 +9,11 @@ struct if_id_buffer_t {
     uint32_t instruction;
     uint32_t pc;
     bool taken;
+    int predict_sum;
     void reset() {
         instruction = 0;
         pc = 0;
+        predict_sum = 0;
         taken = false;
     }
 };
@@ -35,6 +37,7 @@ struct id_ex_buffer_t {
     bool zero_extend;        // 1 if immediate needs to be zero-extended
 
     bool taken;
+    int predict_sum;
 
     // information about instruction stored in this stage
     int opcode;
@@ -52,6 +55,7 @@ struct id_ex_buffer_t {
     void reset() {
         taken = false;
         pc = 0;
+        predict_sum = 0;
         reg_dest = 0;         
         jump = 0;             
         jump_reg = 0;         
@@ -199,6 +203,8 @@ struct ex_mem_buffer_t {
 
     bool taken;
 
+    int predict_sum;
+
     // information about instruction stored in this stage
     int opcode;
     int rs;
@@ -212,6 +218,7 @@ struct ex_mem_buffer_t {
     uint32_t alu_result;
 
     void reset() {
+        predict_sum = 0;
         taken = false;
         pc = 0;
         reg_dest = 0;         
@@ -238,6 +245,7 @@ struct ex_mem_buffer_t {
     }    
 
     void load_from(const id_ex_buffer_t& id_ex_buffer) {
+        predict_sum = id_ex_buffer.predict_sum;
         taken = id_ex_buffer.taken;
         reg_dest = id_ex_buffer.reg_dest;
         jump = id_ex_buffer.jump;

@@ -54,7 +54,10 @@ void SuperscalarBpProcessor::advance() {
         id_out_b.pc = id_in_b.pc;
 
         id_out_a.taken = id_in_a.taken;
+        id_out_a.predict_sum = id_in_a.predict_sum;
         id_out_b.taken = id_in_b.taken;
+        id_out_b.predict_sum = id_in_b.predict_sum;
+
 
         regfile.access(id_out_a.rs, id_out_a.rt, id_out_a.read_data_1, id_out_a.read_data_2, 0, 0, 0);
         regfile.access(id_out_b.rs, id_out_b.rt, id_out_b.read_data_1, id_out_b.read_data_2, 0, 0, 0);
@@ -188,7 +191,7 @@ void SuperscalarBpProcessor::advance() {
             }
             DEBUG(cout << "updating branch predictor for mem_in_b\n");
             uint32_t target = mem_in_b.pc + 4 + (mem_in_b.imm << 2); 
-            predictor.recordBranch(mem_in_b.pc, target, actual_taken, mem_in_b.taken);
+            predictor.recordBranch(mem_in_b.pc, target, actual_taken, mem_in_b.taken, mem_in_b.predict_sum);
         }
 
         if(mem_in_a.branch) {
@@ -205,7 +208,7 @@ void SuperscalarBpProcessor::advance() {
             }  
             DEBUG(cout << "updating branch predictor for mem_in_a\n");
             uint32_t target = mem_in_a.pc + 4 + (mem_in_a.imm << 2); 
-            predictor.recordBranch(mem_in_a.pc, target, actual_taken, mem_in_a.taken);
+            predictor.recordBranch(mem_in_a.pc, target, actual_taken, mem_in_a.taken, mem_in_a.predict_sum);
         }
 
         // If we have mem stall, we need to stall both pipelines, since we don't have reorder buffer
@@ -289,8 +292,14 @@ void SuperscalarBpProcessor::advance() {
                 if_out_b.pc = fetch_pc + 4;
 
                 // Check if either the fetched instructions have a branch prediction
-                branch_predicted_a = predictor.makePrediction(if_out_a.pc);
-                branch_predicted_b = predictor.makePrediction(if_out_b.pc);
+                int sum_a = predictor.makePrediction(if_out_a.pc);
+                int sum_b = predictor.makePrediction(if_out_b.pc);
+
+                if_out_a.predict_sum = sum_a;
+                if_out_b.predict_sum = sum_b;
+
+                branch_predicted_a = sum_a >= 0;
+                branch_predicted_b = sum_b >= 0;
 
                 if(branch_predicted_a) {
                     branch_target_a = predictor.getTarget(if_out_a.pc);
@@ -366,6 +375,8 @@ void SuperscalarBpProcessor::advance() {
             wb_in_b = mem_out_b;
         } else if (load_use_stall) {
             DEBUG(cout << "load use stalling\n";)
+            if_out_a.reset();
+            if_out_b.reset();
             id_out_a.reset();
             id_out_b.reset();
             
@@ -383,6 +394,7 @@ void SuperscalarBpProcessor::advance() {
                 if_out_a.reset();
                 if_out_b.reset();
             } else { // issue, this causes the fetch pc to be updated,
+                if_out_b.reset();
                 fetch_pc += 4;
             }
 
