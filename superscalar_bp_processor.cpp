@@ -206,6 +206,7 @@ void SuperscalarBpProcessor::advance() {
                 } else {
                     fetch_pc = mem_in_a.pc + 4;
                 }
+                mem_in_b.reset();
                 DEBUG(cout << "mem_in_a was wrong should have gone to " << fetch_pc << "\n");
             }  
             DEBUG(cout << "updating branch predictor for mem_in_a\n");
