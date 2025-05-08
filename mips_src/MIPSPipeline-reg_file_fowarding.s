@@ -5,15 +5,9 @@
 	.ent	__start
 	.type	__start, @function
 __start:
-	add $5, $0, 123
-    nop
-    nop
-    nop
-    nop
-    nop
-	nop
-   	lw $5, 300($0)
-	add $2, $2, $5
-	endlabel:
+   addi $1, $0, 5
+   addi $2, $0, 1
+   addi $3, $0, 2
+   add $4, $1, $1
 	.end	__start
 	.size	__start, .-__start

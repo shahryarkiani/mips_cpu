@@ -8,10 +8,10 @@ __start:
    addi $8, $0, 1001
    sw $8, 24($1)
    addi $9, $9, 5
+   #addi $9, $10, 1
    beq $9, $10, label1
-   # nop
    addi $10, $10, 3
-   addi $8, $8, 1 # -> blabdlajds;f
+   addi $8, $8, 1
    addi $9, $9, 2
 label1:
    addi $10, $10, 4

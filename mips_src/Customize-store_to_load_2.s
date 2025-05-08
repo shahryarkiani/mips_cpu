@@ -5,7 +5,7 @@
 	.ent	__start
 	.type	__start, @function
 __start:
-    addi $31, $0, 2
+    addi $31, $0, 10
 loop:
     addi $1, $0, 100
     addi $2, $0, 12768
@@ -22,8 +22,8 @@ loop:
     lw $3, 0($4)
     lw $5, 0($6)
     lw $7, 0($8)
-    add $9, $3, $7 # 16 - 64
-    addi $31, $31, -1 # 17 - 68
-    bne $31, $0, loop # 18 - 72
+    add $9, $3, $7
+    addi $31, $31, -1
+    bne $31, $0, loop
 	.end	__start
 	.size	__start, .-__start

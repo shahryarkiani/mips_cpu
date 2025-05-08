@@ -20,7 +20,7 @@ __start:
     sw $6, 0($7)
     lw $8, 0($7)
     beq $8, $8, endlabel
-    addi $10, $10, 1 #0x40
-endlabel: #0x44
+    addi $10, $10, 1
+endlabel:
 	.end	__start
 	.size	__start, .-__start

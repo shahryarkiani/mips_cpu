@@ -10,13 +10,13 @@ __start:
 outer_loop:
     addi    $1, $0, 0x7F8
     sll     $1, $1, 3
-    addi    $2, $0, 16
+    addi    $2, $0, 32
     addi    $3, $0, 1
     addi    $4, $0, 0x800
     sll     $4, $4, 3
     
 inner_loop:
-    sw      $3, 0($1) # this sw slows this thing down
+    sw      $3, 0($1)
     sll     $3, $3, 1
     addi    $3, $3, 7
     add     $1, $1, $4

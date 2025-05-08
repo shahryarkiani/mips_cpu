@@ -144,13 +144,10 @@ int main(int argc, char *argv[]) {
     uint64_t num_cycles = 0;
     while (processor.getPC() <= end_pc) {
         processor.advance();
-        DEBUG(cout << "\nCYCLE " << num_cycles << "\n";)
-        DEBUG(cout << "regfile.pc: " << processor.getPC() << "\n";)
-        DEBUG(processor.printRegFile();)
+        cout << "\nCYCLE " << num_cycles << "\n";
+        processor.printRegFile();
         num_cycles++;
     }
-
-    cout << "\nCYCLE " << num_cycles << "\n";
-    processor.printRegFile();
-    cout << "\nCompleted execution in " << (double)num_cycles*(optLevel ? 1 : 125)*0.5 << " nanoseconds.\n";
+    cout << "\nCompleted in " << num_cycles << "cycles.\n";
+    cout << "Completed execution in " << (double)num_cycles*(optLevel ? 1 : 125)*0.5 << " nanoseconds.\n";
 }
